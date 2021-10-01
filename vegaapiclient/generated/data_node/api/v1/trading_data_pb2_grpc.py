@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from data_node.api.v1 import trading_data_pb2 as data__node_dot_api_dot_v1_dot_trading__data__pb2
+from ...api.v1 import trading_data_pb2 as data__node_dot_api_dot_v1_dot_trading__data__pb2
 
 
 class TradingDataServiceStub(object):

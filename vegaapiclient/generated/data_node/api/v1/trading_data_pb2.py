@@ -11,17 +11,17 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from vega import vega_pb2 as vega_dot_vega__pb2
-from vega import markets_pb2 as vega_dot_markets__pb2
-from vega import governance_pb2 as vega_dot_governance__pb2
-from vega import assets_pb2 as vega_dot_assets__pb2
-from vega.events.v1 import events_pb2 as vega_dot_events_dot_v1_dot_events__pb2
-from vega.oracles.v1 import spec_pb2 as vega_dot_oracles_dot_v1_dot_spec__pb2
-from vega.oracles.v1 import data_pb2 as vega_dot_oracles_dot_v1_dot_data__pb2
-from vega.commands.v1 import commands_pb2 as vega_dot_commands_dot_v1_dot_commands__pb2
-from vega.commands.v1 import transaction_pb2 as vega_dot_commands_dot_v1_dot_transaction__pb2
-from vega.commands.v1 import validator_commands_pb2 as vega_dot_commands_dot_v1_dot_validator__commands__pb2
-from github.com.mwitkow.go_proto_validators import validator_pb2 as github_dot_com_dot_mwitkow_dot_go__proto__validators_dot_validator__pb2
+from ....vega import vega_pb2 as vega_dot_vega__pb2
+from ....vega import markets_pb2 as vega_dot_markets__pb2
+from ....vega import governance_pb2 as vega_dot_governance__pb2
+from ....vega import assets_pb2 as vega_dot_assets__pb2
+from ....vega.events.v1 import events_pb2 as vega_dot_events_dot_v1_dot_events__pb2
+from ....vega.oracles.v1 import spec_pb2 as vega_dot_oracles_dot_v1_dot_spec__pb2
+from ....vega.oracles.v1 import data_pb2 as vega_dot_oracles_dot_v1_dot_data__pb2
+from ....vega.commands.v1 import commands_pb2 as vega_dot_commands_dot_v1_dot_commands__pb2
+from ....vega.commands.v1 import transaction_pb2 as vega_dot_commands_dot_v1_dot_transaction__pb2
+from ....vega.commands.v1 import validator_commands_pb2 as vega_dot_commands_dot_v1_dot_validator__commands__pb2
+from ....github.com.mwitkow.go_proto_validators import validator_pb2 as github_dot_com_dot_mwitkow_dot_go__proto__validators_dot_validator__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(

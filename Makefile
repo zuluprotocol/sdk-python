@@ -38,7 +38,11 @@ check_dist:
 
 .PHONY: clean
 clean:
-	@rm -rf "$(GENERATED_DIR)" build
+	@rm -rf "$(GENERATED_DIR)"
+
+.PHONY: clean-caches
+clean-caches:
+	@rm -rf .mypy_cache .pytest_cache build dist
 
 .PHONY: coverage
 coverage:

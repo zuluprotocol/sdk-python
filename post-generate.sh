@@ -137,4 +137,12 @@ find \
 	-e 's#^from vega.(commands.v1|coreapi.v1|events.v1|oracles.v1|snapshot.v1|wallet.v1|github.com.mwitkow.go_proto_validators) import #from ...\1 import #' \
 	-e 's#^import ([a-z_]*_pb2) as #from ... import \1 as #'
 
+find \
+	"$generated_dir/data_node/api/v1" \
+	-maxdepth 1 -name '*.py' -print0 | xargs -0r sed --in-place -r \
+	-e 's#^from github.com.mwitkow.go_proto_validators #from ....github.com.mwitkow.go_proto_validators #' \
+	-e 's#^from vega import ([a-z_]*)_pb2 as#from ....vega import \1_pb2 as#' \
+	-e 's#^from vega.(commands.v1|coreapi.v1|events.v1|oracles.v1|snapshot.v1|wallet.v1|github.com.mwitkow.go_proto_validators) import #from ....vega.\1 import #' \
+	-e 's#^from data_node.(api.v1) import #from ...\1 import #'
+
 find "$generated_dir" -name '*.py' -print0 | xargs -0r sed --in-place -re 's#[ \t]+$##'
