@@ -7,12 +7,6 @@ name: Python
     branches:
       - develop
       - main
-    paths:
-      - "external/**"
-      - "grpc/clients/python/**"
-      - "grpc/examples/python/**"
-      - "proto/**"
-      - "rest/examples/python/**"
 
 jobs:
 
@@ -62,45 +56,3 @@ jobs:
           cd grpc/clients/python
           python3 setup.py sdist bdist_wheel
           make check_dist
-
-      - name: Run example scripts for gRPC
-        env:
-          CORE_GRPC_NODE: ${{ secrets.CORE_GRPC_NODE }}
-          DATA_GRPC_NODE: ${{ secrets.DATA_GRPC_NODE }}
-          NODE_URL_GRPC: ${{ secrets.CORE_GRPC_NODE }}  # deprecated
-          WALLET_NAME: ${{ secrets.WALLET_NAME }}
-          WALLET_PASSPHRASE: ${{ secrets.WALLET_PASSPHRASE }}
-          WALLETSERVER_URL: ${{ secrets.WALLETSERVER }}
-        run: |
-          command -v pipenv 1>/dev/null || pip install pipenv
-          cd grpc/examples/python
-          make ci
-        if: ${{ matrix.python-version == '3.9' }}
-
-      # - name: Run example scripts for GraphQL
-      #   env:
-      #     CORE_REST_NODE: ${{ secrets.CORE_REST_NODE }}
-      #     DATA_REST_NODE: ${{ secrets.DATA_REST_NODE }}
-      #     NODE_URL_REST: ${{ secrets.NODE_URL_REST }}  # deprecated
-      #     WALLET_NAME: ${{ secrets.WALLET_NAME }}
-      #     WALLET_PASSPHRASE: ${{ secrets.WALLET_PASSPHRASE }}
-      #     WALLETSERVER_URL: ${{ secrets.WALLETSERVER }}
-      #   run: |
-      #     command -v pipenv 1>/dev/null || pip install pipenv
-      #     cd graphql/examples/python
-      #     make  # no "ci" here, yet
-      #   if: ${{ matrix.python-version == '3.9' }}
-
-      - name: Run example scripts for REST
-        env:
-          CORE_REST_NODE: ${{ secrets.CORE_REST_NODE }}
-          DATA_REST_NODE: ${{ secrets.DATA_REST_NODE }}
-          NODE_URL_REST: ${{ secrets.NODE_URL_REST }}  # deprecated
-          WALLET_NAME: ${{ secrets.WALLET_NAME }}
-          WALLET_PASSPHRASE: ${{ secrets.WALLET_PASSPHRASE }}
-          WALLETSERVER_URL: ${{ secrets.WALLETSERVER }}
-        run: |
-          command -v pipenv 1>/dev/null || pip install pipenv
-          cd rest/examples/python
-          make ci
-        if: ${{ matrix.python-version == '3.9' }}
