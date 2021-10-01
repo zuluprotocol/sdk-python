@@ -10,7 +10,7 @@ def test_order_submission(
     now = int(corenode_trading.GetVegaTime(timereq).timestamp)
 
     # Create the tx
-    req = vac.vega.wallet.v1.wallet.SubmitTransactionRequest(
+    vac.vega.wallet.v1.wallet.SubmitTransactionRequest(
         pub_key="aabbcc",
         propagate=False,
         order_submission=vac.vega.commands.v1.commands.OrderSubmission(
