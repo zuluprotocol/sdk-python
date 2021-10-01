@@ -1,3 +1,3 @@
 # Python SDK
 
-Version: 0.43.0-pre1
+Version: 0.43.0
