@@ -7,6 +7,7 @@ rm -rf "$generated_dir/github.com"
 
 for x in \
 	github/com/mwitkow/go_proto_validators \
+	data_node/api/v1 \
 	vega/api \
 	vega/checkpoint/v1 \
 	vega/commands/v1 \
@@ -53,6 +54,7 @@ do
 done
 
 for x in \
+	data_node/api \
 	vega/checkpoint \
 	vega/commands \
 	vega/coreapi \
@@ -67,6 +69,12 @@ from . import v1
 __all__ = ["v1"]
 EOF
 done
+
+cat >"$generated_dir/data_node/__init__.py" <<EOF
+from . import api
+
+__all__ = ["api"]
+EOF
 
 python3 generate_vega_init.py >"$generated_dir/vega/__init__.py"
 
