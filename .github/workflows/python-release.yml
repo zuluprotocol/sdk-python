@@ -31,7 +31,6 @@ jobs:
           twine_test_password: ${{ secrets.TWINE_TEST_PASSWORD }}
           twine_prod_password: ${{ secrets.TWINE_PASSWORD }}
         run: |
-          cd grpc/clients/python
           github_tag="${GITHUB_REF#refs/tags/v}"
           if [[ "$v" =~ ^v[0-9]+.[0-9]+.[0-9]+-a[0-9]+$ ]] ; then
             echo "This is an alpha release."
