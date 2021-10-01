@@ -7,7 +7,7 @@ import vegaapiclient as vac
 @pytest.fixture(scope="module")
 def corenode_trading():
     """
-    Provide a `VegaTradingClient`, connected to $CORE_GRPC_NODE.
+    Provide a `VegaTradingClient`, connected to `$CORE_GRPC_NODE`.
     """
     grpc_node = os.getenv("CORE_GRPC_NODE")
     assert grpc_node is not None and grpc_node != ""
@@ -17,7 +17,7 @@ def corenode_trading():
 @pytest.fixture(scope="module")
 def corenode_coreapi():
     """
-    Provide a `VegaCoreAPIClient`, connected to $CORE_GRPC_NODE.
+    Provide a `VegaCoreAPIClient`, connected to `$CORE_GRPC_NODE`.
     """
     grpc_node = os.getenv("CORE_GRPC_NODE")
     assert grpc_node is not None and grpc_node != ""
@@ -27,7 +27,7 @@ def corenode_coreapi():
 @pytest.fixture(scope="module")
 def datanode_tradingdata():
     """
-    Provide a `TBD`, connected to $DATA_GRPC_NODE.
+    Provide a `TBD`, connected to `$DATA_GRPC_NODE`.
     """
     grpc_node = os.getenv("DATA_GRPC_NODE")
     assert grpc_node is not None and grpc_node != ""
@@ -38,7 +38,7 @@ def datanode_tradingdata():
 @pytest.fixture(scope="module")
 def datanode_tradingproxy():
     """
-    Provide a `TBD`, connected to $DATA_GRPC_NODE.
+    Provide a `TBD`, connected to `$DATA_GRPC_NODE`.
     """
     grpc_node = os.getenv("DATA_GRPC_NODE")
     assert grpc_node is not None and grpc_node != ""
