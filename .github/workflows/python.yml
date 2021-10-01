@@ -1,0 +1,106 @@
+---
+
+name: Python
+
+"on":
+  pull_request:
+    branches:
+      - develop
+      - main
+    paths:
+      - "external/**"
+      - "grpc/clients/python/**"
+      - "grpc/examples/python/**"
+      - "proto/**"
+      - "rest/examples/python/**"
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.7", "3.8", "3.9"]
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Lint with flake8
+        run: |
+          command -v flake8 1>/dev/null || pip install flake8
+          make flake8
+
+      - name: Lint with black
+        run: |
+          command -v black 1>/dev/null || pip install black
+          make blackcheck
+
+      - name: Type-check with mypy
+        run: |
+          sudo apt update
+          sudo env DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends python3-virtualenv
+          make mypy
+
+      - name: Test with pytest
+        env:
+          CORE_GRPC_NODE: ${{ secrets.CORE_GRPC_NODE }}
+          DATA_GRPC_NODE: ${{ secrets.DATA_GRPC_NODE }}
+          FAUCETSERVER: ${{ secrets.FAUCETSERVER }}
+          WALLETSERVER: ${{ secrets.WALLETSERVER }}
+        run: |
+          cd grpc/clients/python
+          command -v pipenv 1>/dev/null || pip install pipenv
+          make test
+
+      - name: Check archive file counts
+        run: |
+          cd grpc/clients/python
+          python3 setup.py sdist bdist_wheel
+          make check_dist
+
+      - name: Run example scripts for gRPC
+        env:
+          CORE_GRPC_NODE: ${{ secrets.CORE_GRPC_NODE }}
+          DATA_GRPC_NODE: ${{ secrets.DATA_GRPC_NODE }}
+          NODE_URL_GRPC: ${{ secrets.CORE_GRPC_NODE }}  # deprecated
+          WALLET_NAME: ${{ secrets.WALLET_NAME }}
+          WALLET_PASSPHRASE: ${{ secrets.WALLET_PASSPHRASE }}
+          WALLETSERVER_URL: ${{ secrets.WALLETSERVER }}
+        run: |
+          command -v pipenv 1>/dev/null || pip install pipenv
+          cd grpc/examples/python
+          make ci
+        if: ${{ matrix.python-version == '3.9' }}
+
+      # - name: Run example scripts for GraphQL
+      #   env:
+      #     CORE_REST_NODE: ${{ secrets.CORE_REST_NODE }}
+      #     DATA_REST_NODE: ${{ secrets.DATA_REST_NODE }}
+      #     NODE_URL_REST: ${{ secrets.NODE_URL_REST }}  # deprecated
+      #     WALLET_NAME: ${{ secrets.WALLET_NAME }}
+      #     WALLET_PASSPHRASE: ${{ secrets.WALLET_PASSPHRASE }}
+      #     WALLETSERVER_URL: ${{ secrets.WALLETSERVER }}
+      #   run: |
+      #     command -v pipenv 1>/dev/null || pip install pipenv
+      #     cd graphql/examples/python
+      #     make  # no "ci" here, yet
+      #   if: ${{ matrix.python-version == '3.9' }}
+
+      - name: Run example scripts for REST
+        env:
+          CORE_REST_NODE: ${{ secrets.CORE_REST_NODE }}
+          DATA_REST_NODE: ${{ secrets.DATA_REST_NODE }}
+          NODE_URL_REST: ${{ secrets.NODE_URL_REST }}  # deprecated
+          WALLET_NAME: ${{ secrets.WALLET_NAME }}
+          WALLET_PASSPHRASE: ${{ secrets.WALLET_PASSPHRASE }}
+          WALLETSERVER_URL: ${{ secrets.WALLETSERVER }}
+        run: |
+          command -v pipenv 1>/dev/null || pip install pipenv
+          cd rest/examples/python
+          make ci
+        if: ${{ matrix.python-version == '3.9' }}
