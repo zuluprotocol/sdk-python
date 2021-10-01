@@ -1,0 +1,67 @@
+---
+
+matrix:
+  - name: Markdown
+    sources:
+      - README.md
+    default_encoding: utf-8
+    aspell:
+      d: en_GB
+      lang: en
+    dictionary:
+      encoding: utf-8
+      output: pyspelling-md.dic.tmp
+      wordlists:
+        - .spelling-md
+    pipeline:
+      # Filters: https://github.com/facelessuser/pyspelling/tree/master/docs/src/markdown/filters
+      - pyspelling.filters.context:
+          context_visible_first: true
+          escapes: '\\[\\`]'
+          delimiters:
+            # Ignore multiline content between triple backticks
+            - open: '(?s)^(?P<open>```)'
+              close: '^(?P=open)$'
+            # Ignore text between inline back ticks
+            - open: '(?P<open>`)'
+              close: '(?P=open)'
+      - pyspelling.filters.markdown: null
+      - pyspelling.filters.html:
+          comments: false
+          attributes:
+            - alt
+            - title
+          ignores:
+            - code
+            - pre
+      - pyspelling.filters.url: null
+
+  - name: Python
+    sources:
+      - "*.py"
+      - tests/*.py
+      - vegaapiclient/*.py
+      # not: vegaapiclient/generated/**/*.py
+    default_encoding: utf-8
+    aspell:
+      d: en_GB
+      lang: en
+    dictionary:
+      encoding: utf-8
+      output: pyspelling-py.dic.tmp
+      wordlists:
+        - .spelling-py
+    pipeline:
+      - pyspelling.filters.context:
+          context_visible_first: true
+          escapes: '\\[\\`]'
+          delimiters:
+            # Ignore multiline content between (possibly indented) triple backticks
+            - open: '(?s)^(?P<open>[ ]*```)'
+              close: '^(?P=open)$'
+            # Ignore text between inline back ticks
+            - open: '(?P<open>`)'
+              close: '(?P=open)'
+      - pyspelling.filters.python:
+          strings: false
+          comments: false
