@@ -9,7 +9,6 @@ for x in \
 	github/com/mwitkow/go_proto_validators \
 	data_node/api/v1 \
 	vega/api \
-	vega/checkpoint/v1 \
 	vega/commands/v1 \
 	vega/coreapi/v1 \
 	vega/events/v1 \
@@ -55,7 +54,6 @@ done
 
 for x in \
 	data_node/api \
-	vega/checkpoint \
 	vega/commands \
 	vega/coreapi \
 	vega/events \
@@ -89,7 +87,6 @@ for x in \
 	github \
 	github/com \
 	github/com/mwitkow \
-	vega/checkpoint \
 	vega/commands \
 	vega/coreapi \
 	vega/events \
@@ -124,7 +121,6 @@ find "$generated_dir/vega/api" -maxdepth 1 -name '*.py' -print0 | xargs -0r sed 
 	-e 's#^import ([a-z_]*)_pb2 as #from ... import \1_pb2 as #'
 
 find \
-	"$generated_dir/vega/checkpoint/v1" \
 	"$generated_dir/vega/commands/v1" \
 	"$generated_dir/vega/coreapi/v1" \
 	"$generated_dir/vega/events/v1" \
