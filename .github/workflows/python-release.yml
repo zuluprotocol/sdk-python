@@ -31,9 +31,8 @@ jobs:
           twine_test_password: ${{ secrets.TWINE_TEST_PASSWORD }}
           twine_prod_password: ${{ secrets.TWINE_PASSWORD }}
         run: |
-          cd grpc/clients/python
           github_tag="${GITHUB_REF#refs/tags/v}"
-          if [[ "$v" =~ ^v[0-9]+.[0-9]+.[0-9]+-a[0-9]+$ ]] ; then
+          if [[ "$github_tag" =~ ^[0-9]+.[0-9]+.[0-9]+-a[0-9]+$ ]] ; then
             echo "This is an alpha release."
             # Inject the version, rather than requiring it in setup.py.
             sed --in-place -e 's#^VERSION.*$#VERSION = "'"$github_tag"'"#' setup.py
@@ -42,14 +41,14 @@ jobs:
           else
             echo "This is a (pre)release."
             setuppy_tag="$(python -c "$(awk '/^VERSION = /' setup.py); print(VERSION)")"
+            if [[ "$github_tag" != "$setuppy_tag" ]] ; then
+              echo "Tags do not match."
+              echo "Github:   $github_tag"
+              echo "setup.py: $setuppy_tag"
+              exit 1
+            fi
             make_target=dist
             export TWINE_PASSWORD="$twine_prod_password"
-          fi
-          if [[ "$github_tag" != "$setuppy_tag" ]] ; then
-            echo "Tags do not match."
-            echo "Github:   $github_tag"
-            echo "setup.py: $setuppy_tag"
-            exit 1
           fi
           command -v twine 1>/dev/null || pip install twine
           make "$make_target"
