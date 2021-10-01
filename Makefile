@@ -113,23 +113,14 @@ test:
 	@pipenv run pip install -e .
 	@env PYTHONPATH=. pipenv run pytest tests/
 
-# .PHONY: mypy
-# mypy:
-# 	@venv="/tmp/venv-$$USER-vega-api-mypy" && \
-# 	if ! test -d "$$venv" ; then \
-# 		virtualenv "$$venv" || exit 1 ; \
-# 	fi && \
-# 	source "$$venv/bin/activate" && \
-# 	pip install -r mypy-requirements.txt && \
-# 	echo "Running mypy in grpc/clients/python" && \
-# 	pushd grpc/clients/python 1>/dev/null && \
-# 	env MYPYPATH=. mypy --ignore-missing-imports . | grep -vE '(^Found|/generated/|: note: )' ; \
-# 	code="$$?" ; test "$$code" -ne 0 && \
-# 	popd 1>/dev/null && \
-# 	for d in graphql/examples/python grpc/examples/python rest/examples/python ; do \
-# 		echo "Running mypy in $$d" && \
-# 		pushd "$$d" 1>/dev/null && \
-# 		env MYPYPATH=. mypy --ignore-missing-imports . && \
-# 		popd 1>/dev/null || exit 1 ; \
-# 	done && \
-# 	deactivate
+.PHONY: mypy
+mypy:
+	@venv="/tmp/venv-$$USER-vega-sdk-python-mypy" && \
+	if ! test -d "$$venv" ; then \
+		virtualenv "$$venv" || exit 1 ; \
+	fi && \
+	source "$$venv/bin/activate" && \
+	pip install -r mypy-requirements.txt && \
+	env MYPYPATH=. mypy --ignore-missing-imports . | grep -vE '(^Found|/generated/|: note: )' ; \
+	code="$$?" ; \
+	test "$$code" -ne 0
