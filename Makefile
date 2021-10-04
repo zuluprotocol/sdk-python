@@ -2,6 +2,7 @@
 
 SHELL := /usr/bin/env bash
 GENERATED_DIR := vegaapiclient/generated
+VEGAPROTOS ?= $(HOME)/src/github.com/vegaprotocol/protos
 
 .PHONY: default
 default:

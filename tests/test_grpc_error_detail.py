@@ -4,9 +4,9 @@ import grpc
 import vegaapiclient as vac
 
 
-def test_grpc_error_detail(corenode_trading):
+def test_grpc_error_detail(corenode_core):
     # Construct a request of the WRONG type.
-    req = vac.vega.api.trading.SubmitTransactionRequest(
+    req = vac.vega.api.v1.core.SubmitTransactionRequest(
         tx=vac.vega.commands.v1.transaction.Transaction(
             input_data=bytes("\x00\x01\x02", "ascii"),
         ),
@@ -14,7 +14,7 @@ def test_grpc_error_detail(corenode_trading):
     # TODO: use: with pytest.raises(grpc.RpcError) as e_info:
     try:
         # Make a call using the WRONG request type.
-        result = corenode_trading.PropagateChainEvent(req)
+        result = corenode_core.PropagateChainEvent(req)
         print(f"result={result}")
         assert False, (
             "The gRPC call using the WRONG request message type should have "
