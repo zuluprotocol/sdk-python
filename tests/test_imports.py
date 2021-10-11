@@ -2,15 +2,15 @@ import vegaapiclient as vac
 
 
 def test_api():
-    assert "trading" in dir(vac.vega.api)
+    assert "v1" in dir(vac.vega.api)
+
+
+def test_checkpoint():
+    assert "v1" in dir(vac.vega.checkpoint)
 
 
 def test_commands():
     assert "v1" in dir(vac.vega.commands)
-
-
-def test_coreapi():
-    assert "v1" in dir(vac.vega.coreapi)
 
 
 def test_events():

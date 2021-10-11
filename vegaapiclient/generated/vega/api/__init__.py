@@ -1,7 +1,3 @@
-from . import trading_pb2_grpc as trading_grpc
-from . import trading_pb2 as trading
+from . import v1
 
-__all__ = [
-    "trading_grpc",
-    "trading",
-]
+__all__ = ["v1"]

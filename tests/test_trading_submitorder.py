@@ -2,12 +2,12 @@ import vegaapiclient as vac
 
 
 def test_order_submission(
-    corenode_trading,
-    corenode_coreapi,
+    corenode_core,
+    corenode_corestate,
 ):
     # Get the chain time
-    timereq = vac.vega.api.trading.GetVegaTimeRequest()
-    now = int(corenode_trading.GetVegaTime(timereq).timestamp)
+    timereq = vac.vega.api.v1.core.GetVegaTimeRequest()
+    now = int(corenode_core.GetVegaTime(timereq).timestamp)
 
     # Create the tx
     vac.vega.wallet.v1.wallet.SubmitTransactionRequest(
