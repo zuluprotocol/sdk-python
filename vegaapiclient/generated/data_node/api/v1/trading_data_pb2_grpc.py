@@ -29,6 +29,11 @@ class TradingDataServiceStub(object):
                 request_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.FeeInfrastructureAccountsRequest.SerializeToString,
                 response_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.FeeInfrastructureAccountsResponse.FromString,
                 )
+        self.GlobalRewardPoolAccounts = channel.unary_unary(
+                '/datanode.api.v1.TradingDataService/GlobalRewardPoolAccounts',
+                request_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GlobalRewardPoolAccountsRequest.SerializeToString,
+                response_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GlobalRewardPoolAccountsResponse.FromString,
+                )
         self.Candles = channel.unary_unary(
                 '/datanode.api.v1.TradingDataService/Candles',
                 request_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.CandlesRequest.SerializeToString,
@@ -393,6 +398,15 @@ class TradingDataServiceServicer(object):
     def FeeInfrastructureAccounts(self, request, context):
         """Get a list of accounts holding infrastructure fees.
         Can be filtered by asset, there will be 1 infrastructure fee account per
+        asset in the network.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GlobalRewardPoolAccounts(self, request, context):
+        """Get a list of accounts holding rewards pools
+        Can be filtered by asset, there will be 1 reward pool account per
         asset in the network.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -912,6 +926,11 @@ def add_TradingDataServiceServicer_to_server(servicer, server):
                     request_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.FeeInfrastructureAccountsRequest.FromString,
                     response_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.FeeInfrastructureAccountsResponse.SerializeToString,
             ),
+            'GlobalRewardPoolAccounts': grpc.unary_unary_rpc_method_handler(
+                    servicer.GlobalRewardPoolAccounts,
+                    request_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GlobalRewardPoolAccountsRequest.FromString,
+                    response_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GlobalRewardPoolAccountsResponse.SerializeToString,
+            ),
             'Candles': grpc.unary_unary_rpc_method_handler(
                     servicer.Candles,
                     request_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.CandlesRequest.FromString,
@@ -1310,6 +1329,23 @@ class TradingDataService(object):
         return grpc.experimental.unary_unary(request, target, '/datanode.api.v1.TradingDataService/FeeInfrastructureAccounts',
             data__node_dot_api_dot_v1_dot_trading__data__pb2.FeeInfrastructureAccountsRequest.SerializeToString,
             data__node_dot_api_dot_v1_dot_trading__data__pb2.FeeInfrastructureAccountsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GlobalRewardPoolAccounts(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/datanode.api.v1.TradingDataService/GlobalRewardPoolAccounts',
+            data__node_dot_api_dot_v1_dot_trading__data__pb2.GlobalRewardPoolAccountsRequest.SerializeToString,
+            data__node_dot_api_dot_v1_dot_trading__data__pb2.GlobalRewardPoolAccountsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

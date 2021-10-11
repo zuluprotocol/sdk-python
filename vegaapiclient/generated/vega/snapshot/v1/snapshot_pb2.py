@@ -26,7 +26,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z,code.vegaprotocol.io/protos/vega/snapshot/v1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1fvega/snapshot/v1/snapshot.proto\x12\x10vega.snapshot.v1\x1a\x0fvega/vega.proto\x1a\x12vega/markets.proto\x1a\x11vega/assets.proto\x1a\x17vega/chain_events.proto\x1a\x15vega/governance.proto\x1a\x1bvega/events/v1/events.proto\"\x9c\x01\n\x08Snapshot\x12\x16\n\x06height\x18\x01 \x01(\x04R\x06height\x12\x30\n\x06\x66ormat\x18\x02 \x01(\x0e\x32\x18.vega.snapshot.v1.FormatR\x06\x66ormat\x12\x16\n\x06\x63hunks\x18\x03 \x01(\rR\x06\x63hunks\x12\x12\n\x04hash\x18\x04 \x01(\x0cR\x04hash\x12\x1a\n\x08metadata\x18\x05 \x01(\x0cR\x08metadata\"i\n\x08NodeHash\x12\x19\n\x08\x66ull_key\x18\x01 \x01(\tR\x07\x66ullKey\x12\x1c\n\tnamespace\x18\x02 \x01(\tR\tnamespace\x12\x10\n\x03key\x18\x03 \x01(\tR\x03key\x12\x12\n\x04hash\x18\x04 \x01(\tR\x04hash\"\x84\x01\n\x08Metadata\x12\x18\n\x07version\x18\x01 \x01(\x03R\x07version\x12!\n\x0c\x63hunk_hashes\x18\x02 \x03(\tR\x0b\x63hunkHashes\x12;\n\x0bnode_hashes\x18\x03 \x03(\x0b\x32\x1a.vega.snapshot.v1.NodeHashR\nnodeHashes\"V\n\x05\x43hunk\x12-\n\x04\x64\x61ta\x18\x01 \x03(\x0b\x32\x19.vega.snapshot.v1.PayloadR\x04\x64\x61ta\x12\x0e\n\x02nr\x18\x02 \x01(\x03R\x02nr\x12\x0e\n\x02of\x18\x03 \x01(\x03R\x02of\"\x93\x0c\n\x07Payload\x12\x45\n\ractive_assets\x18\x01 \x01(\x0b\x32\x1e.vega.snapshot.v1.ActiveAssetsH\x00R\x0c\x61\x63tiveAssets\x12H\n\x0epending_assets\x18\x02 \x01(\x0b\x32\x1f.vega.snapshot.v1.PendingAssetsH\x00R\rpendingAssets\x12W\n\x13\x62\x61nking_withdrawals\x18\x03 \x01(\x0b\x32$.vega.snapshot.v1.BankingWithdrawalsH\x00R\x12\x62\x61nkingWithdrawals\x12N\n\x10\x62\x61nking_deposits\x18\x04 \x01(\x0b\x32!.vega.snapshot.v1.BankingDepositsH\x00R\x0f\x62\x61nkingDeposits\x12\x42\n\x0c\x62\x61nking_seen\x18\x05 \x01(\x0b\x32\x1d.vega.snapshot.v1.BankingSeenH\x00R\x0b\x62\x61nkingSeen\x12>\n\ncheckpoint\x18\x06 \x01(\x0b\x32\x1c.vega.snapshot.v1.CheckpointH\x00R\ncheckpoint\x12W\n\x13\x63ollateral_accounts\x18\x07 \x01(\x0b\x32$.vega.snapshot.v1.CollateralAccountsH\x00R\x12\x63ollateralAccounts\x12Q\n\x11\x63ollateral_assets\x18\x08 \x01(\x0b\x32\".vega.snapshot.v1.CollateralAssetsH\x00R\x10\x63ollateralAssets\x12Q\n\x11\x64\x65legation_active\x18\t \x01(\x0b\x32\".vega.snapshot.v1.DelegationActiveH\x00R\x10\x64\x65legationActive\x12T\n\x12\x64\x65legation_pending\x18\n \x01(\x0b\x32#.vega.snapshot.v1.DelegationPendingH\x00R\x11\x64\x65legationPending\x12K\n\x0f\x64\x65legation_auto\x18\x0b \x01(\x0b\x32 .vega.snapshot.v1.DelegationAutoH\x00R\x0e\x64\x65legationAuto\x12Q\n\x11governance_active\x18\x0c \x01(\x0b\x32\".vega.snapshot.v1.GovernanceActiveH\x00R\x10governanceActive\x12T\n\x12governance_enacted\x18\r \x01(\x0b\x32#.vega.snapshot.v1.GovernanceEnactedH\x00R\x11governanceEnacted\x12N\n\x10staking_accounts\x18\x0e \x01(\x0b\x32!.vega.snapshot.v1.StakingAccountsH\x00R\x0fstakingAccounts\x12\x45\n\rmatching_book\x18\x0f \x01(\x0b\x32\x1e.vega.snapshot.v1.MatchingBookH\x00R\x0cmatchingBook\x12L\n\x12network_parameters\x18\x10 \x01(\x0b\x32\x1b.vega.snapshot.v1.NetParamsH\x00R\x11networkParameters\x12Q\n\x11\x65xecution_markets\x18\x11 \x01(\x0b\x32\".vega.snapshot.v1.ExecutionMarketsH\x00R\x10\x65xecutionMarkets\x12N\n\x10market_positions\x18\x12 \x01(\x0b\x32!.vega.snapshot.v1.MarketPositionsH\x00R\x0fmarketPositions\x12\x39\n\tapp_state\x18\x13 \x01(\x0b\x32\x1a.vega.snapshot.v1.AppStateH\x00R\x08\x61ppState\x12\x34\n\x05\x65poch\x18\x14 \x01(\x0b\x32\x1c.vega.snapshot.v1.EpochStateH\x00R\x05\x65pochB\x06\n\x04\x64\x61ta\"?\n\x12\x43ollateralAccounts\x12)\n\x08\x61\x63\x63ounts\x18\x01 \x03(\x0b\x32\r.vega.AccountR\x08\x61\x63\x63ounts\"7\n\x10\x43ollateralAssets\x12#\n\x06\x61ssets\x18\x01 \x03(\x0b\x32\x0b.vega.AssetR\x06\x61ssets\"3\n\x0c\x41\x63tiveAssets\x12#\n\x06\x61ssets\x18\x01 \x03(\x0b\x32\x0b.vega.AssetR\x06\x61ssets\"4\n\rPendingAssets\x12#\n\x06\x61ssets\x18\x01 \x03(\x0b\x32\x0b.vega.AssetR\x06\x61ssets\"P\n\nWithdrawal\x12\x10\n\x03ref\x18\x01 \x01(\tR\x03ref\x12\x30\n\nwithdrawal\x18\x02 \x01(\x0b\x32\x10.vega.WithdrawalR\nwithdrawal\"B\n\x07\x44\x65posit\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\'\n\x07\x64\x65posit\x18\x02 \x01(\x0b\x32\r.vega.DepositR\x07\x64\x65posit\"i\n\x05TxRef\x12\x14\n\x05\x61sset\x18\x01 \x01(\tR\x05\x61sset\x12\x19\n\x08\x62lock_nr\x18\x02 \x01(\x04R\x07\x62lockNr\x12\x12\n\x04hash\x18\x03 \x01(\tR\x04hash\x12\x1b\n\tlog_index\x18\x04 \x01(\x04R\x08logIndex\"T\n\x12\x42\x61nkingWithdrawals\x12>\n\x0bwithdrawals\x18\x01 \x03(\x0b\x32\x1c.vega.snapshot.v1.WithdrawalR\x0bwithdrawals\"F\n\x0f\x42\x61nkingDeposits\x12\x33\n\x07\x64\x65posit\x18\x01 \x03(\x0b\x32\x19.vega.snapshot.v1.DepositR\x07\x64\x65posit\":\n\x0b\x42\x61nkingSeen\x12+\n\x04refs\x18\x01 \x03(\x0b\x32\x17.vega.snapshot.v1.TxRefR\x04refs\"%\n\nCheckpoint\x12\x17\n\x07next_cp\x18\x01 \x01(\x03R\x06nextCp\"F\n\x10\x44\x65legationActive\x12\x32\n\x0b\x64\x65legations\x18\x01 \x03(\x0b\x32\x10.vega.DelegationR\x0b\x64\x65legations\"}\n\x11\x44\x65legationPending\x12\x32\n\x0b\x64\x65legations\x18\x01 \x03(\x0b\x32\x10.vega.DelegationR\x0b\x64\x65legations\x12\x34\n\x0cundelegation\x18\x02 \x03(\x0b\x32\x10.vega.DelegationR\x0cundelegation\"*\n\x0e\x44\x65legationAuto\x12\x18\n\x07parties\x18\x01 \x03(\tR\x07parties\"\x9d\x01\n\x0fPendingProposal\x12*\n\x08proposal\x18\x01 \x01(\x0b\x32\x0e.vega.ProposalR\x08proposal\x12\x1c\n\x03yes\x18\x02 \x03(\x0b\x32\n.vega.VoteR\x03yes\x12\x1a\n\x02no\x18\x03 \x03(\x0b\x32\n.vega.VoteR\x02no\x12$\n\x07invalid\x18\x04 \x03(\x0b\x32\n.vega.VoteR\x07invalid\"A\n\x11GovernanceEnacted\x12,\n\tproposals\x18\x01 \x03(\x0b\x32\x0e.vega.ProposalR\tproposals\"S\n\x10GovernanceActive\x12?\n\tproposals\x18\x01 \x03(\x0b\x32!.vega.snapshot.v1.PendingProposalR\tproposals\"v\n\x0eStakingAccount\x12\x14\n\x05party\x18\x01 \x01(\tR\x05party\x12\x18\n\x07\x62\x61lance\x18\x02 \x01(\tR\x07\x62\x61lance\x12\x34\n\x06\x65vents\x18\x03 \x03(\x0b\x32\x1c.vega.events.v1.StakeLinkingR\x06\x65vents\"O\n\x0fStakingAccounts\x12<\n\x08\x61\x63\x63ounts\x18\x01 \x03(\x0b\x32 .vega.snapshot.v1.StakingAccountR\x08\x61\x63\x63ounts\"k\n\x0cMatchingBook\x12\x1b\n\tmarket_id\x18\x01 \x01(\tR\x08marketId\x12\x1d\n\x03\x62uy\x18\x02 \x03(\x0b\x32\x0b.vega.OrderR\x03\x62uy\x12\x1f\n\x04sell\x18\x03 \x03(\x0b\x32\x0b.vega.OrderR\x04sell\";\n\tNetParams\x12.\n\x06params\x18\x01 \x03(\x0b\x32\x16.vega.NetworkParameterR\x06params\"0\n\nDecimalMap\x12\x10\n\x03key\x18\x01 \x01(\x03R\x03key\x12\x10\n\x03val\x18\x02 \x01(\tR\x03val\"5\n\tTimePrice\x12\x12\n\x04time\x18\x01 \x01(\x03R\x04time\x12\x14\n\x05price\x18\x02 \x01(\tR\x05price\";\n\x0bPriceVolume\x12\x14\n\x05price\x18\x01 \x01(\tR\x05price\x12\x16\n\x06volume\x18\x02 \x01(\x04R\x06volume\"B\n\nPriceRange\x12\x10\n\x03min\x18\x01 \x01(\tR\x03min\x12\x10\n\x03max\x18\x02 \x01(\tR\x03max\x12\x10\n\x03ref\x18\x03 \x01(\tR\x03ref\"\x9a\x01\n\nPriceBound\x12\x16\n\x06\x61\x63tive\x18\x01 \x01(\x08R\x06\x61\x63tive\x12\x1b\n\tup_factor\x18\x02 \x01(\tR\x08upFactor\x12\x1f\n\x0b\x64own_factor\x18\x03 \x01(\tR\ndownFactor\x12\x36\n\x07trigger\x18\x04 \x01(\x0b\x32\x1c.vega.PriceMonitoringTriggerR\x07trigger\"y\n\x0fPriceRangeCache\x12\x32\n\x05\x62ound\x18\x01 \x01(\x0b\x32\x1c.vega.snapshot.v1.PriceBoundR\x05\x62ound\x12\x32\n\x05range\x18\x02 \x01(\x0b\x32\x1c.vega.snapshot.v1.PriceRangeR\x05range\"\xca\x03\n\x0cPriceMonitor\x12 \n\x0binitialised\x18\x03 \x01(\x08R\x0binitialised\x12=\n\x0b\x66p_horizons\x18\x04 \x03(\x0b\x32\x1c.vega.snapshot.v1.DecimalMapR\nfpHorizons\x12\x10\n\x03now\x18\x05 \x01(\x03R\x03now\x12\x16\n\x06update\x18\x06 \x01(\x03R\x06update\x12\x34\n\x06\x62ounds\x18\x07 \x03(\x0b\x32\x1c.vega.snapshot.v1.PriceBoundR\x06\x62ounds\x12\x33\n\x16price_range_cache_time\x18\x08 \x01(\x03R\x13priceRangeCacheTime\x12M\n\x11price_range_cache\x18\t \x03(\x0b\x32!.vega.snapshot.v1.PriceRangeCacheR\x0fpriceRangeCache\x12/\n\x14ref_price_cache_time\x18\n \x01(\x03R\x11refPriceCacheTime\x12\x44\n\x0fref_price_cache\x18\x0b \x03(\x0b\x32\x1c.vega.snapshot.v1.DecimalMapR\rrefPriceCache\"\xc6\x02\n\x0c\x41uctionState\x12,\n\x04mode\x18\x01 \x01(\x0e\x32\x18.vega.Market.TradingModeR\x04mode\x12;\n\x0c\x64\x65\x66\x61ult_mode\x18\x02 \x01(\x0e\x32\x18.vega.Market.TradingModeR\x0b\x64\x65\x66\x61ultMode\x12.\n\x07trigger\x18\x03 \x01(\x0e\x32\x14.vega.AuctionTriggerR\x07trigger\x12\x14\n\x05\x62\x65gin\x18\x04 \x01(\x03R\x05\x62\x65gin\x12\'\n\x03\x65nd\x18\x05 \x01(\x0b\x32\x15.vega.AuctionDurationR\x03\x65nd\x12\x14\n\x05start\x18\x06 \x01(\x08R\x05start\x12\x12\n\x04stop\x18\x07 \x01(\x08R\x04stop\x12\x32\n\textension\x18\x08 \x01(\x0e\x32\x14.vega.AuctionTriggerR\textension\"]\n\rEquityShareLP\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n\x05stake\x18\x02 \x01(\tR\x05stake\x12\x14\n\x05share\x18\x03 \x01(\tR\x05share\x12\x10\n\x03\x61vg\x18\x04 \x01(\tR\x03\x61vg\"\x86\x01\n\x0b\x45quityShare\x12\x10\n\x03mvp\x18\x01 \x01(\tR\x03mvp\x12\x32\n\x15opening_auction_ended\x18\x02 \x01(\x08R\x13openingAuctionEnded\x12\x31\n\x03lps\x18\x03 \x03(\x0b\x32\x1f.vega.snapshot.v1.EquityShareLPR\x03lps\"\x96\x05\n\x06Market\x12$\n\x06market\x18\x01 \x01(\x0b\x32\x0c.vega.MarketR\x06market\x12\x43\n\rprice_monitor\x18\x02 \x01(\x0b\x32\x1e.vega.snapshot.v1.PriceMonitorR\x0cpriceMonitor\x12\x43\n\rauction_state\x18\x03 \x01(\x0b\x32\x1e.vega.snapshot.v1.AuctionStateR\x0c\x61uctionState\x12\x30\n\rpegged_orders\x18\x04 \x03(\x0b\x32\x0b.vega.OrderR\x0cpeggedOrders\x12\x34\n\x0f\x65xpiring_orders\x18\x05 \x03(\x0b\x32\x0b.vega.OrderR\x0e\x65xpiringOrders\x12\"\n\rlast_best_bid\x18\x06 \x01(\tR\x0blastBestBid\x12\"\n\rlast_best_ask\x18\x07 \x01(\tR\x0blastBestAsk\x12 \n\x0clast_mid_bid\x18\x08 \x01(\tR\nlastMidBid\x12 \n\x0clast_mid_ask\x18\t \x01(\tR\nlastMidAsk\x12\x35\n\x17last_market_value_proxy\x18\n \x01(\tR\x14lastMarketValueProxy\x12\x41\n\x1dlast_equity_share_distributed\x18\x0b \x01(\x03R\x1alastEquityShareDistributed\x12@\n\x0c\x65quity_share\x18\x0c \x01(\x0b\x32\x1d.vega.snapshot.v1.EquityShareR\x0b\x65quityShare\x12,\n\x12\x63urrent_mark_price\x18\r \x01(\tR\x10\x63urrentMarkPrice\"F\n\x10\x45xecutionMarkets\x12\x32\n\x07markets\x18\x01 \x03(\x0b\x32\x18.vega.snapshot.v1.MarketR\x07markets\"\xbb\x01\n\x08Position\x12\x19\n\x08party_id\x18\x01 \x01(\tR\x07partyId\x12\x12\n\x04size\x18\x02 \x01(\x03R\x04size\x12\x10\n\x03\x62uy\x18\x03 \x01(\x03R\x03\x62uy\x12\x12\n\x04sell\x18\x04 \x01(\x03R\x04sell\x12\x14\n\x05price\x18\x05 \x01(\tR\x05price\x12 \n\x0cvw_buy_price\x18\x06 \x01(\tR\nvwBuyPrice\x12\"\n\rvw_sell_price\x18\x07 \x01(\tR\x0bvwSellPrice\"h\n\x0fMarketPositions\x12\x1b\n\tmarket_id\x18\x01 \x01(\tR\x08marketId\x12\x38\n\tpositions\x18\x02 \x03(\x0b\x32\x1a.vega.snapshot.v1.PositionR\tpositions\"L\n\x08\x41ppState\x12\x16\n\x06height\x18\x01 \x01(\x04R\x06height\x12\x14\n\x05\x62lock\x18\x02 \x01(\tR\x05\x62lock\x12\x12\n\x04time\x18\x03 \x01(\x03R\x04time\"\xc3\x01\n\nEpochState\x12\x10\n\x03seq\x18\x01 \x01(\x04R\x03seq\x12\x1d\n\nstart_time\x18\x03 \x01(\x03R\tstartTime\x12\x1f\n\x0b\x65xpire_time\x18\x04 \x01(\x03R\nexpireTime\x12\x36\n\x18ready_to_start_new_epoch\x18\x06 \x01(\x08R\x14readyToStartNewEpoch\x12+\n\x12ready_to_end_epoch\x18\x07 \x01(\x08R\x0freadyToEndEpoch*`\n\x06\x46ormat\x12\x16\n\x12\x46ORMAT_UNSPECIFIED\x10\x00\x12\x10\n\x0c\x46ORMAT_PROTO\x10\x01\x12\x1b\n\x17\x46ORMAT_PROTO_COMPRESSED\x10\x02\x12\x0f\n\x0b\x46ORMAT_JSON\x10\x03\x42.Z,code.vegaprotocol.io/protos/vega/snapshot/v1b\x06proto3'
+  serialized_pb=b'\n\x1fvega/snapshot/v1/snapshot.proto\x12\x10vega.snapshot.v1\x1a\x0fvega/vega.proto\x1a\x12vega/markets.proto\x1a\x11vega/assets.proto\x1a\x17vega/chain_events.proto\x1a\x15vega/governance.proto\x1a\x1bvega/events/v1/events.proto\"\x9c\x01\n\x08Snapshot\x12\x16\n\x06height\x18\x01 \x01(\x04R\x06height\x12\x30\n\x06\x66ormat\x18\x02 \x01(\x0e\x32\x18.vega.snapshot.v1.FormatR\x06\x66ormat\x12\x16\n\x06\x63hunks\x18\x03 \x01(\rR\x06\x63hunks\x12\x12\n\x04hash\x18\x04 \x01(\x0cR\x04hash\x12\x1a\n\x08metadata\x18\x05 \x01(\x0cR\x08metadata\"i\n\x08NodeHash\x12\x19\n\x08\x66ull_key\x18\x01 \x01(\tR\x07\x66ullKey\x12\x1c\n\tnamespace\x18\x02 \x01(\tR\tnamespace\x12\x10\n\x03key\x18\x03 \x01(\tR\x03key\x12\x12\n\x04hash\x18\x04 \x01(\tR\x04hash\"\x84\x01\n\x08Metadata\x12\x18\n\x07version\x18\x01 \x01(\x03R\x07version\x12!\n\x0c\x63hunk_hashes\x18\x02 \x03(\tR\x0b\x63hunkHashes\x12;\n\x0bnode_hashes\x18\x03 \x03(\x0b\x32\x1a.vega.snapshot.v1.NodeHashR\nnodeHashes\"V\n\x05\x43hunk\x12-\n\x04\x64\x61ta\x18\x01 \x03(\x0b\x32\x19.vega.snapshot.v1.PayloadR\x04\x64\x61ta\x12\x0e\n\x02nr\x18\x02 \x01(\x03R\x02nr\x12\x0e\n\x02of\x18\x03 \x01(\x03R\x02of\"\x80\x0f\n\x07Payload\x12\x45\n\ractive_assets\x18\x01 \x01(\x0b\x32\x1e.vega.snapshot.v1.ActiveAssetsH\x00R\x0c\x61\x63tiveAssets\x12H\n\x0epending_assets\x18\x02 \x01(\x0b\x32\x1f.vega.snapshot.v1.PendingAssetsH\x00R\rpendingAssets\x12W\n\x13\x62\x61nking_withdrawals\x18\x03 \x01(\x0b\x32$.vega.snapshot.v1.BankingWithdrawalsH\x00R\x12\x62\x61nkingWithdrawals\x12N\n\x10\x62\x61nking_deposits\x18\x04 \x01(\x0b\x32!.vega.snapshot.v1.BankingDepositsH\x00R\x0f\x62\x61nkingDeposits\x12\x42\n\x0c\x62\x61nking_seen\x18\x05 \x01(\x0b\x32\x1d.vega.snapshot.v1.BankingSeenH\x00R\x0b\x62\x61nkingSeen\x12[\n\x15\x62\x61nking_asset_actions\x18\x06 \x01(\x0b\x32%.vega.snapshot.v1.BankingAssetActionsH\x00R\x13\x62\x61nkingAssetActions\x12>\n\ncheckpoint\x18\x07 \x01(\x0b\x32\x1c.vega.snapshot.v1.CheckpointH\x00R\ncheckpoint\x12W\n\x13\x63ollateral_accounts\x18\x08 \x01(\x0b\x32$.vega.snapshot.v1.CollateralAccountsH\x00R\x12\x63ollateralAccounts\x12Q\n\x11\x63ollateral_assets\x18\t \x01(\x0b\x32\".vega.snapshot.v1.CollateralAssetsH\x00R\x10\x63ollateralAssets\x12Q\n\x11\x64\x65legation_active\x18\n \x01(\x0b\x32\".vega.snapshot.v1.DelegationActiveH\x00R\x10\x64\x65legationActive\x12T\n\x12\x64\x65legation_pending\x18\x0b \x01(\x0b\x32#.vega.snapshot.v1.DelegationPendingH\x00R\x11\x64\x65legationPending\x12K\n\x0f\x64\x65legation_auto\x18\x0c \x01(\x0b\x32 .vega.snapshot.v1.DelegationAutoH\x00R\x0e\x64\x65legationAuto\x12Q\n\x11governance_active\x18\r \x01(\x0b\x32\".vega.snapshot.v1.GovernanceActiveH\x00R\x10governanceActive\x12T\n\x12governance_enacted\x18\x0e \x01(\x0b\x32#.vega.snapshot.v1.GovernanceEnactedH\x00R\x11governanceEnacted\x12N\n\x10staking_accounts\x18\x0f \x01(\x0b\x32!.vega.snapshot.v1.StakingAccountsH\x00R\x0fstakingAccounts\x12\x45\n\rmatching_book\x18\x10 \x01(\x0b\x32\x1e.vega.snapshot.v1.MatchingBookH\x00R\x0cmatchingBook\x12L\n\x12network_parameters\x18\x11 \x01(\x0b\x32\x1b.vega.snapshot.v1.NetParamsH\x00R\x11networkParameters\x12Q\n\x11\x65xecution_markets\x18\x12 \x01(\x0b\x32\".vega.snapshot.v1.ExecutionMarketsH\x00R\x10\x65xecutionMarkets\x12N\n\x10market_positions\x18\x13 \x01(\x0b\x32!.vega.snapshot.v1.MarketPositionsH\x00R\x0fmarketPositions\x12\x39\n\tapp_state\x18\x14 \x01(\x0b\x32\x1a.vega.snapshot.v1.AppStateH\x00R\x08\x61ppState\x12\x34\n\x05\x65poch\x18\x15 \x01(\x0b\x32\x1c.vega.snapshot.v1.EpochStateH\x00R\x05\x65poch\x12^\n\x16\x65xecution_id_generator\x18\x16 \x01(\x0b\x32&.vega.snapshot.v1.ExecutionIDGeneratorH\x00R\x14\x65xecutionIdGenerator\x12\x61\n\x17rewards_pending_payouts\x18\x17 \x01(\x0b\x32\'.vega.snapshot.v1.RewardsPendingPayoutsH\x00R\x15rewardsPendingPayouts\x12K\n\x0fgovernance_node\x18\x18 \x01(\x0b\x32 .vega.snapshot.v1.GovernanceNodeH\x00R\x0egovernanceNodeB\x06\n\x04\x64\x61ta\"?\n\x12\x43ollateralAccounts\x12)\n\x08\x61\x63\x63ounts\x18\x01 \x03(\x0b\x32\r.vega.AccountR\x08\x61\x63\x63ounts\"7\n\x10\x43ollateralAssets\x12#\n\x06\x61ssets\x18\x01 \x03(\x0b\x32\x0b.vega.AssetR\x06\x61ssets\"3\n\x0c\x41\x63tiveAssets\x12#\n\x06\x61ssets\x18\x01 \x03(\x0b\x32\x0b.vega.AssetR\x06\x61ssets\"4\n\rPendingAssets\x12#\n\x06\x61ssets\x18\x01 \x03(\x0b\x32\x0b.vega.AssetR\x06\x61ssets\"P\n\nWithdrawal\x12\x10\n\x03ref\x18\x01 \x01(\tR\x03ref\x12\x30\n\nwithdrawal\x18\x02 \x01(\x0b\x32\x10.vega.WithdrawalR\nwithdrawal\"B\n\x07\x44\x65posit\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\'\n\x07\x64\x65posit\x18\x02 \x01(\x0b\x32\r.vega.DepositR\x07\x64\x65posit\"i\n\x05TxRef\x12\x14\n\x05\x61sset\x18\x01 \x01(\tR\x05\x61sset\x12\x19\n\x08\x62lock_nr\x18\x02 \x01(\x04R\x07\x62lockNr\x12\x12\n\x04hash\x18\x03 \x01(\tR\x04hash\x12\x1b\n\tlog_index\x18\x04 \x01(\x04R\x08logIndex\"\xcd\x02\n\x0b\x41ssetAction\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n\x05state\x18\x02 \x01(\rR\x05state\x12\x14\n\x05\x61sset\x18\x03 \x01(\tR\x05\x61sset\x12!\n\x0c\x62lock_number\x18\x04 \x01(\x04R\x0b\x62lockNumber\x12\x19\n\x08tx_index\x18\x05 \x01(\x04R\x07txIndex\x12\x12\n\x04hash\x18\x06 \x01(\tR\x04hash\x12\x42\n\x0f\x62uiltin_deposit\x18\x07 \x01(\x0b\x32\x19.vega.BuiltinAssetDepositR\x0e\x62uiltinDeposit\x12\x37\n\rerc20_deposit\x18\x08 \x01(\x0b\x32\x12.vega.ERC20DepositR\x0c\x65rc20Deposit\x12\x33\n\nasset_list\x18\t \x01(\x0b\x32\x14.vega.ERC20AssetListR\tassetList\"T\n\x12\x42\x61nkingWithdrawals\x12>\n\x0bwithdrawals\x18\x01 \x03(\x0b\x32\x1c.vega.snapshot.v1.WithdrawalR\x0bwithdrawals\"F\n\x0f\x42\x61nkingDeposits\x12\x33\n\x07\x64\x65posit\x18\x01 \x03(\x0b\x32\x19.vega.snapshot.v1.DepositR\x07\x64\x65posit\":\n\x0b\x42\x61nkingSeen\x12+\n\x04refs\x18\x01 \x03(\x0b\x32\x17.vega.snapshot.v1.TxRefR\x04refs\"W\n\x13\x42\x61nkingAssetActions\x12@\n\x0c\x61sset_action\x18\x01 \x03(\x0b\x32\x1d.vega.snapshot.v1.AssetActionR\x0b\x61ssetAction\"%\n\nCheckpoint\x12\x17\n\x07next_cp\x18\x01 \x01(\x03R\x06nextCp\"F\n\x10\x44\x65legationActive\x12\x32\n\x0b\x64\x65legations\x18\x01 \x03(\x0b\x32\x10.vega.DelegationR\x0b\x64\x65legations\"}\n\x11\x44\x65legationPending\x12\x32\n\x0b\x64\x65legations\x18\x01 \x03(\x0b\x32\x10.vega.DelegationR\x0b\x64\x65legations\x12\x34\n\x0cundelegation\x18\x02 \x03(\x0b\x32\x10.vega.DelegationR\x0cundelegation\"*\n\x0e\x44\x65legationAuto\x12\x18\n\x07parties\x18\x01 \x03(\tR\x07parties\"\x9d\x01\n\x0fPendingProposal\x12*\n\x08proposal\x18\x01 \x01(\x0b\x32\x0e.vega.ProposalR\x08proposal\x12\x1c\n\x03yes\x18\x02 \x03(\x0b\x32\n.vega.VoteR\x03yes\x12\x1a\n\x02no\x18\x03 \x03(\x0b\x32\n.vega.VoteR\x02no\x12$\n\x07invalid\x18\x04 \x03(\x0b\x32\n.vega.VoteR\x07invalid\"A\n\x11GovernanceEnacted\x12,\n\tproposals\x18\x01 \x03(\x0b\x32\x0e.vega.ProposalR\tproposals\"S\n\x10GovernanceActive\x12?\n\tproposals\x18\x01 \x03(\x0b\x32!.vega.snapshot.v1.PendingProposalR\tproposals\">\n\x0eGovernanceNode\x12,\n\tproposals\x18\x01 \x03(\x0b\x32\x0e.vega.ProposalR\tproposals\"v\n\x0eStakingAccount\x12\x14\n\x05party\x18\x01 \x01(\tR\x05party\x12\x18\n\x07\x62\x61lance\x18\x02 \x01(\tR\x07\x62\x61lance\x12\x34\n\x06\x65vents\x18\x03 \x03(\x0b\x32\x1c.vega.events.v1.StakeLinkingR\x06\x65vents\"O\n\x0fStakingAccounts\x12<\n\x08\x61\x63\x63ounts\x18\x01 \x03(\x0b\x32 .vega.snapshot.v1.StakingAccountR\x08\x61\x63\x63ounts\"\xcc\x01\n\x0cMatchingBook\x12\x1b\n\tmarket_id\x18\x01 \x01(\tR\x08marketId\x12\x1d\n\x03\x62uy\x18\x02 \x03(\x0b\x32\x0b.vega.OrderR\x03\x62uy\x12\x1f\n\x04sell\x18\x03 \x03(\x0b\x32\x0b.vega.OrderR\x04sell\x12*\n\x11last_traded_price\x18\x04 \x01(\tR\x0flastTradedPrice\x12\x18\n\x07\x61uction\x18\x05 \x01(\x08R\x07\x61uction\x12\x19\n\x08\x62\x61tch_id\x18\x06 \x01(\x04R\x07\x62\x61tchId\";\n\tNetParams\x12.\n\x06params\x18\x01 \x03(\x0b\x32\x16.vega.NetworkParameterR\x06params\"0\n\nDecimalMap\x12\x10\n\x03key\x18\x01 \x01(\x03R\x03key\x12\x10\n\x03val\x18\x02 \x01(\tR\x03val\"5\n\tTimePrice\x12\x12\n\x04time\x18\x01 \x01(\x03R\x04time\x12\x14\n\x05price\x18\x02 \x01(\tR\x05price\";\n\x0bPriceVolume\x12\x14\n\x05price\x18\x01 \x01(\tR\x05price\x12\x16\n\x06volume\x18\x02 \x01(\x04R\x06volume\"B\n\nPriceRange\x12\x10\n\x03min\x18\x01 \x01(\tR\x03min\x12\x10\n\x03max\x18\x02 \x01(\tR\x03max\x12\x10\n\x03ref\x18\x03 \x01(\tR\x03ref\"\x9a\x01\n\nPriceBound\x12\x16\n\x06\x61\x63tive\x18\x01 \x01(\x08R\x06\x61\x63tive\x12\x1b\n\tup_factor\x18\x02 \x01(\tR\x08upFactor\x12\x1f\n\x0b\x64own_factor\x18\x03 \x01(\tR\ndownFactor\x12\x36\n\x07trigger\x18\x04 \x01(\x0b\x32\x1c.vega.PriceMonitoringTriggerR\x07trigger\"y\n\x0fPriceRangeCache\x12\x32\n\x05\x62ound\x18\x01 \x01(\x0b\x32\x1c.vega.snapshot.v1.PriceBoundR\x05\x62ound\x12\x32\n\x05range\x18\x02 \x01(\x0b\x32\x1c.vega.snapshot.v1.PriceRangeR\x05range\"\xca\x03\n\x0cPriceMonitor\x12 \n\x0binitialised\x18\x03 \x01(\x08R\x0binitialised\x12=\n\x0b\x66p_horizons\x18\x04 \x03(\x0b\x32\x1c.vega.snapshot.v1.DecimalMapR\nfpHorizons\x12\x10\n\x03now\x18\x05 \x01(\x03R\x03now\x12\x16\n\x06update\x18\x06 \x01(\x03R\x06update\x12\x34\n\x06\x62ounds\x18\x07 \x03(\x0b\x32\x1c.vega.snapshot.v1.PriceBoundR\x06\x62ounds\x12\x33\n\x16price_range_cache_time\x18\x08 \x01(\x03R\x13priceRangeCacheTime\x12M\n\x11price_range_cache\x18\t \x03(\x0b\x32!.vega.snapshot.v1.PriceRangeCacheR\x0fpriceRangeCache\x12/\n\x14ref_price_cache_time\x18\n \x01(\x03R\x11refPriceCacheTime\x12\x44\n\x0fref_price_cache\x18\x0b \x03(\x0b\x32\x1c.vega.snapshot.v1.DecimalMapR\rrefPriceCache\"\xc6\x02\n\x0c\x41uctionState\x12,\n\x04mode\x18\x01 \x01(\x0e\x32\x18.vega.Market.TradingModeR\x04mode\x12;\n\x0c\x64\x65\x66\x61ult_mode\x18\x02 \x01(\x0e\x32\x18.vega.Market.TradingModeR\x0b\x64\x65\x66\x61ultMode\x12.\n\x07trigger\x18\x03 \x01(\x0e\x32\x14.vega.AuctionTriggerR\x07trigger\x12\x14\n\x05\x62\x65gin\x18\x04 \x01(\x03R\x05\x62\x65gin\x12\'\n\x03\x65nd\x18\x05 \x01(\x0b\x32\x15.vega.AuctionDurationR\x03\x65nd\x12\x14\n\x05start\x18\x06 \x01(\x08R\x05start\x12\x12\n\x04stop\x18\x07 \x01(\x08R\x04stop\x12\x32\n\textension\x18\x08 \x01(\x0e\x32\x14.vega.AuctionTriggerR\textension\"]\n\rEquityShareLP\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n\x05stake\x18\x02 \x01(\tR\x05stake\x12\x14\n\x05share\x18\x03 \x01(\tR\x05share\x12\x10\n\x03\x61vg\x18\x04 \x01(\tR\x03\x61vg\"\x86\x01\n\x0b\x45quityShare\x12\x10\n\x03mvp\x18\x01 \x01(\tR\x03mvp\x12\x32\n\x15opening_auction_ended\x18\x02 \x01(\x08R\x13openingAuctionEnded\x12\x31\n\x03lps\x18\x03 \x03(\x0b\x32\x1f.vega.snapshot.v1.EquityShareLPR\x03lps\"\x96\x05\n\x06Market\x12$\n\x06market\x18\x01 \x01(\x0b\x32\x0c.vega.MarketR\x06market\x12\x43\n\rprice_monitor\x18\x02 \x01(\x0b\x32\x1e.vega.snapshot.v1.PriceMonitorR\x0cpriceMonitor\x12\x43\n\rauction_state\x18\x03 \x01(\x0b\x32\x1e.vega.snapshot.v1.AuctionStateR\x0c\x61uctionState\x12\x30\n\rpegged_orders\x18\x04 \x03(\x0b\x32\x0b.vega.OrderR\x0cpeggedOrders\x12\x34\n\x0f\x65xpiring_orders\x18\x05 \x03(\x0b\x32\x0b.vega.OrderR\x0e\x65xpiringOrders\x12\"\n\rlast_best_bid\x18\x06 \x01(\tR\x0blastBestBid\x12\"\n\rlast_best_ask\x18\x07 \x01(\tR\x0blastBestAsk\x12 \n\x0clast_mid_bid\x18\x08 \x01(\tR\nlastMidBid\x12 \n\x0clast_mid_ask\x18\t \x01(\tR\nlastMidAsk\x12\x35\n\x17last_market_value_proxy\x18\n \x01(\tR\x14lastMarketValueProxy\x12\x41\n\x1dlast_equity_share_distributed\x18\x0b \x01(\x03R\x1alastEquityShareDistributed\x12@\n\x0c\x65quity_share\x18\x0c \x01(\x0b\x32\x1d.vega.snapshot.v1.EquityShareR\x0b\x65quityShare\x12,\n\x12\x63urrent_mark_price\x18\r \x01(\tR\x10\x63urrentMarkPrice\"F\n\x10\x45xecutionMarkets\x12\x32\n\x07markets\x18\x01 \x03(\x0b\x32\x18.vega.snapshot.v1.MarketR\x07markets\"\xbb\x01\n\x08Position\x12\x19\n\x08party_id\x18\x01 \x01(\tR\x07partyId\x12\x12\n\x04size\x18\x02 \x01(\x03R\x04size\x12\x10\n\x03\x62uy\x18\x03 \x01(\x03R\x03\x62uy\x12\x12\n\x04sell\x18\x04 \x01(\x03R\x04sell\x12\x14\n\x05price\x18\x05 \x01(\tR\x05price\x12 \n\x0cvw_buy_price\x18\x06 \x01(\tR\nvwBuyPrice\x12\"\n\rvw_sell_price\x18\x07 \x01(\tR\x0bvwSellPrice\"h\n\x0fMarketPositions\x12\x1b\n\tmarket_id\x18\x01 \x01(\tR\x08marketId\x12\x38\n\tpositions\x18\x02 \x03(\x0b\x32\x1a.vega.snapshot.v1.PositionR\tpositions\"L\n\x08\x41ppState\x12\x16\n\x06height\x18\x01 \x01(\x04R\x06height\x12\x14\n\x05\x62lock\x18\x02 \x01(\tR\x05\x62lock\x12\x12\n\x04time\x18\x03 \x01(\x03R\x04time\"\xc3\x01\n\nEpochState\x12\x10\n\x03seq\x18\x01 \x01(\x04R\x03seq\x12\x1d\n\nstart_time\x18\x03 \x01(\x03R\tstartTime\x12\x1f\n\x0b\x65xpire_time\x18\x04 \x01(\x03R\nexpireTime\x12\x36\n\x18ready_to_start_new_epoch\x18\x06 \x01(\x08R\x14readyToStartNewEpoch\x12+\n\x12ready_to_end_epoch\x18\x07 \x01(\x08R\x0freadyToEndEpoch\"f\n\x14\x45xecutionIDGenerator\x12\x18\n\x07\x62\x61tches\x18\x01 \x01(\x04R\x07\x62\x61tches\x12\x16\n\x06orders\x18\x02 \x01(\x04R\x06orders\x12\x1c\n\tproposals\x18\x03 \x01(\x04R\tproposals\"\xa4\x02\n\x15RewardsPendingPayouts\x12\x1f\n\x0breward_time\x18\x01 \x01(\x03R\nrewardTime\x12!\n\x0c\x66rom_account\x18\x02 \x01(\tR\x0b\x66romAccount\x12\x14\n\x05\x61sset\x18\x03 \x01(\tR\x05\x61sset\x12S\n\x13reward_party_amount\x18\x04 \x03(\x0b\x32#.vega.snapshot.v1.RewardPartyAmountR\x11rewardPartyAmount\x12!\n\x0ctotal_reward\x18\x05 \x01(\tR\x0btotalReward\x12\x1b\n\tepoch_seq\x18\x06 \x01(\tR\x08\x65pochSeq\x12\x1c\n\ttimestamp\x18\x07 \x01(\x03R\ttimestamp\"A\n\x11RewardPartyAmount\x12\x14\n\x05party\x18\x01 \x01(\tR\x05party\x12\x16\n\x06\x61mount\x18\x02 \x01(\tR\x06\x61mount*`\n\x06\x46ormat\x12\x16\n\x12\x46ORMAT_UNSPECIFIED\x10\x00\x12\x10\n\x0c\x46ORMAT_PROTO\x10\x01\x12\x1b\n\x17\x46ORMAT_PROTO_COMPRESSED\x10\x02\x12\x0f\n\x0b\x46ORMAT_JSON\x10\x03\x42.Z,code.vegaprotocol.io/protos/vega/snapshot/v1b\x06proto3'
   ,
   dependencies=[vega_dot_vega__pb2.DESCRIPTOR,vega_dot_markets__pb2.DESCRIPTOR,vega_dot_assets__pb2.DESCRIPTOR,vega_dot_chain__events__pb2.DESCRIPTOR,vega_dot_governance__pb2.DESCRIPTOR,vega_dot_events_dot_v1_dot_events__pb2.DESCRIPTOR,])
 
@@ -60,8 +60,8 @@ _FORMAT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=6747,
-  serialized_end=6843,
+  serialized_start=8165,
+  serialized_end=8261,
 )
 _sym_db.RegisterEnumDescriptor(_FORMAT)
 
@@ -322,110 +322,138 @@ _PAYLOAD = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='bankingSeen', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='checkpoint', full_name='vega.snapshot.v1.Payload.checkpoint', index=5,
+      name='banking_asset_actions', full_name='vega.snapshot.v1.Payload.banking_asset_actions', index=5,
       number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='bankingAssetActions', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='checkpoint', full_name='vega.snapshot.v1.Payload.checkpoint', index=6,
+      number=7, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='checkpoint', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='collateral_accounts', full_name='vega.snapshot.v1.Payload.collateral_accounts', index=6,
-      number=7, type=11, cpp_type=10, label=1,
+      name='collateral_accounts', full_name='vega.snapshot.v1.Payload.collateral_accounts', index=7,
+      number=8, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='collateralAccounts', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='collateral_assets', full_name='vega.snapshot.v1.Payload.collateral_assets', index=7,
-      number=8, type=11, cpp_type=10, label=1,
+      name='collateral_assets', full_name='vega.snapshot.v1.Payload.collateral_assets', index=8,
+      number=9, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='collateralAssets', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='delegation_active', full_name='vega.snapshot.v1.Payload.delegation_active', index=8,
-      number=9, type=11, cpp_type=10, label=1,
+      name='delegation_active', full_name='vega.snapshot.v1.Payload.delegation_active', index=9,
+      number=10, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='delegationActive', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='delegation_pending', full_name='vega.snapshot.v1.Payload.delegation_pending', index=9,
-      number=10, type=11, cpp_type=10, label=1,
+      name='delegation_pending', full_name='vega.snapshot.v1.Payload.delegation_pending', index=10,
+      number=11, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='delegationPending', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='delegation_auto', full_name='vega.snapshot.v1.Payload.delegation_auto', index=10,
-      number=11, type=11, cpp_type=10, label=1,
+      name='delegation_auto', full_name='vega.snapshot.v1.Payload.delegation_auto', index=11,
+      number=12, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='delegationAuto', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='governance_active', full_name='vega.snapshot.v1.Payload.governance_active', index=11,
-      number=12, type=11, cpp_type=10, label=1,
+      name='governance_active', full_name='vega.snapshot.v1.Payload.governance_active', index=12,
+      number=13, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='governanceActive', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='governance_enacted', full_name='vega.snapshot.v1.Payload.governance_enacted', index=12,
-      number=13, type=11, cpp_type=10, label=1,
+      name='governance_enacted', full_name='vega.snapshot.v1.Payload.governance_enacted', index=13,
+      number=14, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='governanceEnacted', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='staking_accounts', full_name='vega.snapshot.v1.Payload.staking_accounts', index=13,
-      number=14, type=11, cpp_type=10, label=1,
+      name='staking_accounts', full_name='vega.snapshot.v1.Payload.staking_accounts', index=14,
+      number=15, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='stakingAccounts', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='matching_book', full_name='vega.snapshot.v1.Payload.matching_book', index=14,
-      number=15, type=11, cpp_type=10, label=1,
+      name='matching_book', full_name='vega.snapshot.v1.Payload.matching_book', index=15,
+      number=16, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='matchingBook', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='network_parameters', full_name='vega.snapshot.v1.Payload.network_parameters', index=15,
-      number=16, type=11, cpp_type=10, label=1,
+      name='network_parameters', full_name='vega.snapshot.v1.Payload.network_parameters', index=16,
+      number=17, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='networkParameters', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='execution_markets', full_name='vega.snapshot.v1.Payload.execution_markets', index=16,
-      number=17, type=11, cpp_type=10, label=1,
+      name='execution_markets', full_name='vega.snapshot.v1.Payload.execution_markets', index=17,
+      number=18, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='executionMarkets', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='market_positions', full_name='vega.snapshot.v1.Payload.market_positions', index=17,
-      number=18, type=11, cpp_type=10, label=1,
+      name='market_positions', full_name='vega.snapshot.v1.Payload.market_positions', index=18,
+      number=19, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='marketPositions', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='app_state', full_name='vega.snapshot.v1.Payload.app_state', index=18,
-      number=19, type=11, cpp_type=10, label=1,
+      name='app_state', full_name='vega.snapshot.v1.Payload.app_state', index=19,
+      number=20, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='appState', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='epoch', full_name='vega.snapshot.v1.Payload.epoch', index=19,
-      number=20, type=11, cpp_type=10, label=1,
+      name='epoch', full_name='vega.snapshot.v1.Payload.epoch', index=20,
+      number=21, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='epoch', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='execution_id_generator', full_name='vega.snapshot.v1.Payload.execution_id_generator', index=21,
+      number=22, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='executionIdGenerator', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='rewards_pending_payouts', full_name='vega.snapshot.v1.Payload.rewards_pending_payouts', index=22,
+      number=23, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='rewardsPendingPayouts', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='governance_node', full_name='vega.snapshot.v1.Payload.governance_node', index=23,
+      number=24, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='governanceNode', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -444,7 +472,7 @@ _PAYLOAD = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=676,
-  serialized_end=2231,
+  serialized_end=2596,
 )
 
 
@@ -475,8 +503,8 @@ _COLLATERALACCOUNTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2233,
-  serialized_end=2296,
+  serialized_start=2598,
+  serialized_end=2661,
 )
 
 
@@ -507,8 +535,8 @@ _COLLATERALASSETS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2298,
-  serialized_end=2353,
+  serialized_start=2663,
+  serialized_end=2718,
 )
 
 
@@ -539,8 +567,8 @@ _ACTIVEASSETS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2355,
-  serialized_end=2406,
+  serialized_start=2720,
+  serialized_end=2771,
 )
 
 
@@ -571,8 +599,8 @@ _PENDINGASSETS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2408,
-  serialized_end=2460,
+  serialized_start=2773,
+  serialized_end=2825,
 )
 
 
@@ -610,8 +638,8 @@ _WITHDRAWAL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2462,
-  serialized_end=2542,
+  serialized_start=2827,
+  serialized_end=2907,
 )
 
 
@@ -649,8 +677,8 @@ _DEPOSIT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2544,
-  serialized_end=2610,
+  serialized_start=2909,
+  serialized_end=2975,
 )
 
 
@@ -702,8 +730,96 @@ _TXREF = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2612,
-  serialized_end=2717,
+  serialized_start=2977,
+  serialized_end=3082,
+)
+
+
+_ASSETACTION = _descriptor.Descriptor(
+  name='AssetAction',
+  full_name='vega.snapshot.v1.AssetAction',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='vega.snapshot.v1.AssetAction.id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='state', full_name='vega.snapshot.v1.AssetAction.state', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='state', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='asset', full_name='vega.snapshot.v1.AssetAction.asset', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='asset', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='block_number', full_name='vega.snapshot.v1.AssetAction.block_number', index=3,
+      number=4, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='blockNumber', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='tx_index', full_name='vega.snapshot.v1.AssetAction.tx_index', index=4,
+      number=5, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='txIndex', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='hash', full_name='vega.snapshot.v1.AssetAction.hash', index=5,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='hash', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='builtin_deposit', full_name='vega.snapshot.v1.AssetAction.builtin_deposit', index=6,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='builtinDeposit', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='erc20_deposit', full_name='vega.snapshot.v1.AssetAction.erc20_deposit', index=7,
+      number=8, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='erc20Deposit', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='asset_list', full_name='vega.snapshot.v1.AssetAction.asset_list', index=8,
+      number=9, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='assetList', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3085,
+  serialized_end=3418,
 )
 
 
@@ -734,8 +850,8 @@ _BANKINGWITHDRAWALS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2719,
-  serialized_end=2803,
+  serialized_start=3420,
+  serialized_end=3504,
 )
 
 
@@ -766,8 +882,8 @@ _BANKINGDEPOSITS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2805,
-  serialized_end=2875,
+  serialized_start=3506,
+  serialized_end=3576,
 )
 
 
@@ -798,8 +914,40 @@ _BANKINGSEEN = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2877,
-  serialized_end=2935,
+  serialized_start=3578,
+  serialized_end=3636,
+)
+
+
+_BANKINGASSETACTIONS = _descriptor.Descriptor(
+  name='BankingAssetActions',
+  full_name='vega.snapshot.v1.BankingAssetActions',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='asset_action', full_name='vega.snapshot.v1.BankingAssetActions.asset_action', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='assetAction', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3638,
+  serialized_end=3725,
 )
 
 
@@ -830,8 +978,8 @@ _CHECKPOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2937,
-  serialized_end=2974,
+  serialized_start=3727,
+  serialized_end=3764,
 )
 
 
@@ -862,8 +1010,8 @@ _DELEGATIONACTIVE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2976,
-  serialized_end=3046,
+  serialized_start=3766,
+  serialized_end=3836,
 )
 
 
@@ -901,8 +1049,8 @@ _DELEGATIONPENDING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3048,
-  serialized_end=3173,
+  serialized_start=3838,
+  serialized_end=3963,
 )
 
 
@@ -933,8 +1081,8 @@ _DELEGATIONAUTO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3175,
-  serialized_end=3217,
+  serialized_start=3965,
+  serialized_end=4007,
 )
 
 
@@ -986,8 +1134,8 @@ _PENDINGPROPOSAL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3220,
-  serialized_end=3377,
+  serialized_start=4010,
+  serialized_end=4167,
 )
 
 
@@ -1018,8 +1166,8 @@ _GOVERNANCEENACTED = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3379,
-  serialized_end=3444,
+  serialized_start=4169,
+  serialized_end=4234,
 )
 
 
@@ -1050,8 +1198,40 @@ _GOVERNANCEACTIVE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3446,
-  serialized_end=3529,
+  serialized_start=4236,
+  serialized_end=4319,
+)
+
+
+_GOVERNANCENODE = _descriptor.Descriptor(
+  name='GovernanceNode',
+  full_name='vega.snapshot.v1.GovernanceNode',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='proposals', full_name='vega.snapshot.v1.GovernanceNode.proposals', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='proposals', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4321,
+  serialized_end=4383,
 )
 
 
@@ -1096,8 +1276,8 @@ _STAKINGACCOUNT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3531,
-  serialized_end=3649,
+  serialized_start=4385,
+  serialized_end=4503,
 )
 
 
@@ -1128,8 +1308,8 @@ _STAKINGACCOUNTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3651,
-  serialized_end=3730,
+  serialized_start=4505,
+  serialized_end=4584,
 )
 
 
@@ -1162,6 +1342,27 @@ _MATCHINGBOOK = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='sell', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='last_traded_price', full_name='vega.snapshot.v1.MatchingBook.last_traded_price', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='lastTradedPrice', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='auction', full_name='vega.snapshot.v1.MatchingBook.auction', index=4,
+      number=5, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='auction', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='batch_id', full_name='vega.snapshot.v1.MatchingBook.batch_id', index=5,
+      number=6, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='batchId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -1174,8 +1375,8 @@ _MATCHINGBOOK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3732,
-  serialized_end=3839,
+  serialized_start=4587,
+  serialized_end=4791,
 )
 
 
@@ -1206,8 +1407,8 @@ _NETPARAMS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3841,
-  serialized_end=3900,
+  serialized_start=4793,
+  serialized_end=4852,
 )
 
 
@@ -1245,8 +1446,8 @@ _DECIMALMAP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3902,
-  serialized_end=3950,
+  serialized_start=4854,
+  serialized_end=4902,
 )
 
 
@@ -1284,8 +1485,8 @@ _TIMEPRICE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3952,
-  serialized_end=4005,
+  serialized_start=4904,
+  serialized_end=4957,
 )
 
 
@@ -1323,8 +1524,8 @@ _PRICEVOLUME = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4007,
-  serialized_end=4066,
+  serialized_start=4959,
+  serialized_end=5018,
 )
 
 
@@ -1369,8 +1570,8 @@ _PRICERANGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4068,
-  serialized_end=4134,
+  serialized_start=5020,
+  serialized_end=5086,
 )
 
 
@@ -1422,8 +1623,8 @@ _PRICEBOUND = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4137,
-  serialized_end=4291,
+  serialized_start=5089,
+  serialized_end=5243,
 )
 
 
@@ -1461,8 +1662,8 @@ _PRICERANGECACHE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4293,
-  serialized_end=4414,
+  serialized_start=5245,
+  serialized_end=5366,
 )
 
 
@@ -1549,8 +1750,8 @@ _PRICEMONITOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4417,
-  serialized_end=4875,
+  serialized_start=5369,
+  serialized_end=5827,
 )
 
 
@@ -1630,8 +1831,8 @@ _AUCTIONSTATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4878,
-  serialized_end=5204,
+  serialized_start=5830,
+  serialized_end=6156,
 )
 
 
@@ -1683,8 +1884,8 @@ _EQUITYSHARELP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5206,
-  serialized_end=5299,
+  serialized_start=6158,
+  serialized_end=6251,
 )
 
 
@@ -1729,8 +1930,8 @@ _EQUITYSHARE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5302,
-  serialized_end=5436,
+  serialized_start=6254,
+  serialized_end=6388,
 )
 
 
@@ -1845,8 +2046,8 @@ _MARKET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5439,
-  serialized_end=6101,
+  serialized_start=6391,
+  serialized_end=7053,
 )
 
 
@@ -1877,8 +2078,8 @@ _EXECUTIONMARKETS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6103,
-  serialized_end=6173,
+  serialized_start=7055,
+  serialized_end=7125,
 )
 
 
@@ -1951,8 +2152,8 @@ _POSITION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6176,
-  serialized_end=6363,
+  serialized_start=7128,
+  serialized_end=7315,
 )
 
 
@@ -1990,8 +2191,8 @@ _MARKETPOSITIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6365,
-  serialized_end=6469,
+  serialized_start=7317,
+  serialized_end=7421,
 )
 
 
@@ -2036,8 +2237,8 @@ _APPSTATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6471,
-  serialized_end=6547,
+  serialized_start=7423,
+  serialized_end=7499,
 )
 
 
@@ -2096,8 +2297,167 @@ _EPOCHSTATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6550,
-  serialized_end=6745,
+  serialized_start=7502,
+  serialized_end=7697,
+)
+
+
+_EXECUTIONIDGENERATOR = _descriptor.Descriptor(
+  name='ExecutionIDGenerator',
+  full_name='vega.snapshot.v1.ExecutionIDGenerator',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='batches', full_name='vega.snapshot.v1.ExecutionIDGenerator.batches', index=0,
+      number=1, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='batches', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='orders', full_name='vega.snapshot.v1.ExecutionIDGenerator.orders', index=1,
+      number=2, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='orders', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='proposals', full_name='vega.snapshot.v1.ExecutionIDGenerator.proposals', index=2,
+      number=3, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='proposals', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=7699,
+  serialized_end=7801,
+)
+
+
+_REWARDSPENDINGPAYOUTS = _descriptor.Descriptor(
+  name='RewardsPendingPayouts',
+  full_name='vega.snapshot.v1.RewardsPendingPayouts',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='reward_time', full_name='vega.snapshot.v1.RewardsPendingPayouts.reward_time', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='rewardTime', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='from_account', full_name='vega.snapshot.v1.RewardsPendingPayouts.from_account', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='fromAccount', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='asset', full_name='vega.snapshot.v1.RewardsPendingPayouts.asset', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='asset', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='reward_party_amount', full_name='vega.snapshot.v1.RewardsPendingPayouts.reward_party_amount', index=3,
+      number=4, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='rewardPartyAmount', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='total_reward', full_name='vega.snapshot.v1.RewardsPendingPayouts.total_reward', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='totalReward', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='epoch_seq', full_name='vega.snapshot.v1.RewardsPendingPayouts.epoch_seq', index=5,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='epochSeq', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='timestamp', full_name='vega.snapshot.v1.RewardsPendingPayouts.timestamp', index=6,
+      number=7, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='timestamp', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=7804,
+  serialized_end=8096,
+)
+
+
+_REWARDPARTYAMOUNT = _descriptor.Descriptor(
+  name='RewardPartyAmount',
+  full_name='vega.snapshot.v1.RewardPartyAmount',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='party', full_name='vega.snapshot.v1.RewardPartyAmount.party', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='party', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='amount', full_name='vega.snapshot.v1.RewardPartyAmount.amount', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='amount', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=8098,
+  serialized_end=8163,
 )
 
 _SNAPSHOT.fields_by_name['format'].enum_type = _FORMAT
@@ -2108,6 +2468,7 @@ _PAYLOAD.fields_by_name['pending_assets'].message_type = _PENDINGASSETS
 _PAYLOAD.fields_by_name['banking_withdrawals'].message_type = _BANKINGWITHDRAWALS
 _PAYLOAD.fields_by_name['banking_deposits'].message_type = _BANKINGDEPOSITS
 _PAYLOAD.fields_by_name['banking_seen'].message_type = _BANKINGSEEN
+_PAYLOAD.fields_by_name['banking_asset_actions'].message_type = _BANKINGASSETACTIONS
 _PAYLOAD.fields_by_name['checkpoint'].message_type = _CHECKPOINT
 _PAYLOAD.fields_by_name['collateral_accounts'].message_type = _COLLATERALACCOUNTS
 _PAYLOAD.fields_by_name['collateral_assets'].message_type = _COLLATERALASSETS
@@ -2123,6 +2484,9 @@ _PAYLOAD.fields_by_name['execution_markets'].message_type = _EXECUTIONMARKETS
 _PAYLOAD.fields_by_name['market_positions'].message_type = _MARKETPOSITIONS
 _PAYLOAD.fields_by_name['app_state'].message_type = _APPSTATE
 _PAYLOAD.fields_by_name['epoch'].message_type = _EPOCHSTATE
+_PAYLOAD.fields_by_name['execution_id_generator'].message_type = _EXECUTIONIDGENERATOR
+_PAYLOAD.fields_by_name['rewards_pending_payouts'].message_type = _REWARDSPENDINGPAYOUTS
+_PAYLOAD.fields_by_name['governance_node'].message_type = _GOVERNANCENODE
 _PAYLOAD.oneofs_by_name['data'].fields.append(
   _PAYLOAD.fields_by_name['active_assets'])
 _PAYLOAD.fields_by_name['active_assets'].containing_oneof = _PAYLOAD.oneofs_by_name['data']
@@ -2138,6 +2502,9 @@ _PAYLOAD.fields_by_name['banking_deposits'].containing_oneof = _PAYLOAD.oneofs_b
 _PAYLOAD.oneofs_by_name['data'].fields.append(
   _PAYLOAD.fields_by_name['banking_seen'])
 _PAYLOAD.fields_by_name['banking_seen'].containing_oneof = _PAYLOAD.oneofs_by_name['data']
+_PAYLOAD.oneofs_by_name['data'].fields.append(
+  _PAYLOAD.fields_by_name['banking_asset_actions'])
+_PAYLOAD.fields_by_name['banking_asset_actions'].containing_oneof = _PAYLOAD.oneofs_by_name['data']
 _PAYLOAD.oneofs_by_name['data'].fields.append(
   _PAYLOAD.fields_by_name['checkpoint'])
 _PAYLOAD.fields_by_name['checkpoint'].containing_oneof = _PAYLOAD.oneofs_by_name['data']
@@ -2183,15 +2550,28 @@ _PAYLOAD.fields_by_name['app_state'].containing_oneof = _PAYLOAD.oneofs_by_name[
 _PAYLOAD.oneofs_by_name['data'].fields.append(
   _PAYLOAD.fields_by_name['epoch'])
 _PAYLOAD.fields_by_name['epoch'].containing_oneof = _PAYLOAD.oneofs_by_name['data']
+_PAYLOAD.oneofs_by_name['data'].fields.append(
+  _PAYLOAD.fields_by_name['execution_id_generator'])
+_PAYLOAD.fields_by_name['execution_id_generator'].containing_oneof = _PAYLOAD.oneofs_by_name['data']
+_PAYLOAD.oneofs_by_name['data'].fields.append(
+  _PAYLOAD.fields_by_name['rewards_pending_payouts'])
+_PAYLOAD.fields_by_name['rewards_pending_payouts'].containing_oneof = _PAYLOAD.oneofs_by_name['data']
+_PAYLOAD.oneofs_by_name['data'].fields.append(
+  _PAYLOAD.fields_by_name['governance_node'])
+_PAYLOAD.fields_by_name['governance_node'].containing_oneof = _PAYLOAD.oneofs_by_name['data']
 _COLLATERALACCOUNTS.fields_by_name['accounts'].message_type = vega_dot_vega__pb2._ACCOUNT
 _COLLATERALASSETS.fields_by_name['assets'].message_type = vega_dot_assets__pb2._ASSET
 _ACTIVEASSETS.fields_by_name['assets'].message_type = vega_dot_assets__pb2._ASSET
 _PENDINGASSETS.fields_by_name['assets'].message_type = vega_dot_assets__pb2._ASSET
 _WITHDRAWAL.fields_by_name['withdrawal'].message_type = vega_dot_vega__pb2._WITHDRAWAL
 _DEPOSIT.fields_by_name['deposit'].message_type = vega_dot_vega__pb2._DEPOSIT
+_ASSETACTION.fields_by_name['builtin_deposit'].message_type = vega_dot_chain__events__pb2._BUILTINASSETDEPOSIT
+_ASSETACTION.fields_by_name['erc20_deposit'].message_type = vega_dot_chain__events__pb2._ERC20DEPOSIT
+_ASSETACTION.fields_by_name['asset_list'].message_type = vega_dot_chain__events__pb2._ERC20ASSETLIST
 _BANKINGWITHDRAWALS.fields_by_name['withdrawals'].message_type = _WITHDRAWAL
 _BANKINGDEPOSITS.fields_by_name['deposit'].message_type = _DEPOSIT
 _BANKINGSEEN.fields_by_name['refs'].message_type = _TXREF
+_BANKINGASSETACTIONS.fields_by_name['asset_action'].message_type = _ASSETACTION
 _DELEGATIONACTIVE.fields_by_name['delegations'].message_type = vega_dot_vega__pb2._DELEGATION
 _DELEGATIONPENDING.fields_by_name['delegations'].message_type = vega_dot_vega__pb2._DELEGATION
 _DELEGATIONPENDING.fields_by_name['undelegation'].message_type = vega_dot_vega__pb2._DELEGATION
@@ -2201,6 +2581,7 @@ _PENDINGPROPOSAL.fields_by_name['no'].message_type = vega_dot_governance__pb2._V
 _PENDINGPROPOSAL.fields_by_name['invalid'].message_type = vega_dot_governance__pb2._VOTE
 _GOVERNANCEENACTED.fields_by_name['proposals'].message_type = vega_dot_governance__pb2._PROPOSAL
 _GOVERNANCEACTIVE.fields_by_name['proposals'].message_type = _PENDINGPROPOSAL
+_GOVERNANCENODE.fields_by_name['proposals'].message_type = vega_dot_governance__pb2._PROPOSAL
 _STAKINGACCOUNT.fields_by_name['events'].message_type = vega_dot_events_dot_v1_dot_events__pb2._STAKELINKING
 _STAKINGACCOUNTS.fields_by_name['accounts'].message_type = _STAKINGACCOUNT
 _MATCHINGBOOK.fields_by_name['buy'].message_type = vega_dot_vega__pb2._ORDER
@@ -2227,6 +2608,7 @@ _MARKET.fields_by_name['expiring_orders'].message_type = vega_dot_vega__pb2._ORD
 _MARKET.fields_by_name['equity_share'].message_type = _EQUITYSHARE
 _EXECUTIONMARKETS.fields_by_name['markets'].message_type = _MARKET
 _MARKETPOSITIONS.fields_by_name['positions'].message_type = _POSITION
+_REWARDSPENDINGPAYOUTS.fields_by_name['reward_party_amount'].message_type = _REWARDPARTYAMOUNT
 DESCRIPTOR.message_types_by_name['Snapshot'] = _SNAPSHOT
 DESCRIPTOR.message_types_by_name['NodeHash'] = _NODEHASH
 DESCRIPTOR.message_types_by_name['Metadata'] = _METADATA
@@ -2239,9 +2621,11 @@ DESCRIPTOR.message_types_by_name['PendingAssets'] = _PENDINGASSETS
 DESCRIPTOR.message_types_by_name['Withdrawal'] = _WITHDRAWAL
 DESCRIPTOR.message_types_by_name['Deposit'] = _DEPOSIT
 DESCRIPTOR.message_types_by_name['TxRef'] = _TXREF
+DESCRIPTOR.message_types_by_name['AssetAction'] = _ASSETACTION
 DESCRIPTOR.message_types_by_name['BankingWithdrawals'] = _BANKINGWITHDRAWALS
 DESCRIPTOR.message_types_by_name['BankingDeposits'] = _BANKINGDEPOSITS
 DESCRIPTOR.message_types_by_name['BankingSeen'] = _BANKINGSEEN
+DESCRIPTOR.message_types_by_name['BankingAssetActions'] = _BANKINGASSETACTIONS
 DESCRIPTOR.message_types_by_name['Checkpoint'] = _CHECKPOINT
 DESCRIPTOR.message_types_by_name['DelegationActive'] = _DELEGATIONACTIVE
 DESCRIPTOR.message_types_by_name['DelegationPending'] = _DELEGATIONPENDING
@@ -2249,6 +2633,7 @@ DESCRIPTOR.message_types_by_name['DelegationAuto'] = _DELEGATIONAUTO
 DESCRIPTOR.message_types_by_name['PendingProposal'] = _PENDINGPROPOSAL
 DESCRIPTOR.message_types_by_name['GovernanceEnacted'] = _GOVERNANCEENACTED
 DESCRIPTOR.message_types_by_name['GovernanceActive'] = _GOVERNANCEACTIVE
+DESCRIPTOR.message_types_by_name['GovernanceNode'] = _GOVERNANCENODE
 DESCRIPTOR.message_types_by_name['StakingAccount'] = _STAKINGACCOUNT
 DESCRIPTOR.message_types_by_name['StakingAccounts'] = _STAKINGACCOUNTS
 DESCRIPTOR.message_types_by_name['MatchingBook'] = _MATCHINGBOOK
@@ -2269,6 +2654,9 @@ DESCRIPTOR.message_types_by_name['Position'] = _POSITION
 DESCRIPTOR.message_types_by_name['MarketPositions'] = _MARKETPOSITIONS
 DESCRIPTOR.message_types_by_name['AppState'] = _APPSTATE
 DESCRIPTOR.message_types_by_name['EpochState'] = _EPOCHSTATE
+DESCRIPTOR.message_types_by_name['ExecutionIDGenerator'] = _EXECUTIONIDGENERATOR
+DESCRIPTOR.message_types_by_name['RewardsPendingPayouts'] = _REWARDSPENDINGPAYOUTS
+DESCRIPTOR.message_types_by_name['RewardPartyAmount'] = _REWARDPARTYAMOUNT
 DESCRIPTOR.enum_types_by_name['Format'] = _FORMAT
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -2356,6 +2744,13 @@ TxRef = _reflection.GeneratedProtocolMessageType('TxRef', (_message.Message,), {
   })
 _sym_db.RegisterMessage(TxRef)
 
+AssetAction = _reflection.GeneratedProtocolMessageType('AssetAction', (_message.Message,), {
+  'DESCRIPTOR' : _ASSETACTION,
+  '__module__' : 'vega.snapshot.v1.snapshot_pb2'
+  # @@protoc_insertion_point(class_scope:vega.snapshot.v1.AssetAction)
+  })
+_sym_db.RegisterMessage(AssetAction)
+
 BankingWithdrawals = _reflection.GeneratedProtocolMessageType('BankingWithdrawals', (_message.Message,), {
   'DESCRIPTOR' : _BANKINGWITHDRAWALS,
   '__module__' : 'vega.snapshot.v1.snapshot_pb2'
@@ -2376,6 +2771,13 @@ BankingSeen = _reflection.GeneratedProtocolMessageType('BankingSeen', (_message.
   # @@protoc_insertion_point(class_scope:vega.snapshot.v1.BankingSeen)
   })
 _sym_db.RegisterMessage(BankingSeen)
+
+BankingAssetActions = _reflection.GeneratedProtocolMessageType('BankingAssetActions', (_message.Message,), {
+  'DESCRIPTOR' : _BANKINGASSETACTIONS,
+  '__module__' : 'vega.snapshot.v1.snapshot_pb2'
+  # @@protoc_insertion_point(class_scope:vega.snapshot.v1.BankingAssetActions)
+  })
+_sym_db.RegisterMessage(BankingAssetActions)
 
 Checkpoint = _reflection.GeneratedProtocolMessageType('Checkpoint', (_message.Message,), {
   'DESCRIPTOR' : _CHECKPOINT,
@@ -2425,6 +2827,13 @@ GovernanceActive = _reflection.GeneratedProtocolMessageType('GovernanceActive', 
   # @@protoc_insertion_point(class_scope:vega.snapshot.v1.GovernanceActive)
   })
 _sym_db.RegisterMessage(GovernanceActive)
+
+GovernanceNode = _reflection.GeneratedProtocolMessageType('GovernanceNode', (_message.Message,), {
+  'DESCRIPTOR' : _GOVERNANCENODE,
+  '__module__' : 'vega.snapshot.v1.snapshot_pb2'
+  # @@protoc_insertion_point(class_scope:vega.snapshot.v1.GovernanceNode)
+  })
+_sym_db.RegisterMessage(GovernanceNode)
 
 StakingAccount = _reflection.GeneratedProtocolMessageType('StakingAccount', (_message.Message,), {
   'DESCRIPTOR' : _STAKINGACCOUNT,
@@ -2565,6 +2974,27 @@ EpochState = _reflection.GeneratedProtocolMessageType('EpochState', (_message.Me
   # @@protoc_insertion_point(class_scope:vega.snapshot.v1.EpochState)
   })
 _sym_db.RegisterMessage(EpochState)
+
+ExecutionIDGenerator = _reflection.GeneratedProtocolMessageType('ExecutionIDGenerator', (_message.Message,), {
+  'DESCRIPTOR' : _EXECUTIONIDGENERATOR,
+  '__module__' : 'vega.snapshot.v1.snapshot_pb2'
+  # @@protoc_insertion_point(class_scope:vega.snapshot.v1.ExecutionIDGenerator)
+  })
+_sym_db.RegisterMessage(ExecutionIDGenerator)
+
+RewardsPendingPayouts = _reflection.GeneratedProtocolMessageType('RewardsPendingPayouts', (_message.Message,), {
+  'DESCRIPTOR' : _REWARDSPENDINGPAYOUTS,
+  '__module__' : 'vega.snapshot.v1.snapshot_pb2'
+  # @@protoc_insertion_point(class_scope:vega.snapshot.v1.RewardsPendingPayouts)
+  })
+_sym_db.RegisterMessage(RewardsPendingPayouts)
+
+RewardPartyAmount = _reflection.GeneratedProtocolMessageType('RewardPartyAmount', (_message.Message,), {
+  'DESCRIPTOR' : _REWARDPARTYAMOUNT,
+  '__module__' : 'vega.snapshot.v1.snapshot_pb2'
+  # @@protoc_insertion_point(class_scope:vega.snapshot.v1.RewardPartyAmount)
+  })
+_sym_db.RegisterMessage(RewardPartyAmount)
 
 
 DESCRIPTOR._options = None
