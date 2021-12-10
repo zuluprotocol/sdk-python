@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z,code.vegaprotocol.io/protos/vega/commands/v1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n)vega/commands/v1/validator_commands.proto\x12\x10vega.commands.v1\x1a\x17vega/chain_events.proto\x1a\x36github.com/mwitkow/go-proto-validators/validator.proto\"\xa3\x02\n\x10NodeRegistration\x12(\n\x0cvega_pub_key\x18\x01 \x01(\tB\x06\xe2\xdf\x1f\x02X\x01R\nvegaPubKey\x12\x31\n\x10\x65thereum_address\x18\x02 \x01(\tB\x06\xe2\xdf\x1f\x02X\x01R\x0f\x65thereumAddress\x12*\n\rchain_pub_key\x18\x03 \x01(\tB\x06\xe2\xdf\x1f\x02X\x01R\x0b\x63hainPubKey\x12!\n\x08info_url\x18\x04 \x01(\tB\x06\xe2\xdf\x1f\x02X\x01R\x07infoUrl\x12 \n\x07\x63ountry\x18\x05 \x01(\tB\x06\xe2\xdf\x1f\x02X\x01R\x07\x63ountry\x12\x0e\n\x02id\x18\x06 \x01(\tR\x02id\x12\x12\n\x04name\x18\x07 \x01(\tR\x04name\x12\x1d\n\navatar_url\x18\x08 \x01(\tR\tavatarUrl\"Q\n\x08NodeVote\x12\x1f\n\x07pub_key\x18\x01 \x01(\x0c\x42\x06\xe2\xdf\x1f\x02X\x01R\x06pubKey\x12$\n\treference\x18\x02 \x01(\tB\x06\xe2\xdf\x1f\x02X\x01R\treference\"j\n\rNodeSignature\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x10\n\x03sig\x18\x02 \x01(\x0cR\x03sig\x12\x37\n\x04kind\x18\x03 \x01(\x0e\x32#.vega.commands.v1.NodeSignatureKindR\x04kind\"\xb9\x02\n\nChainEvent\x12\x13\n\x05tx_id\x18\x01 \x01(\tR\x04txId\x12\x14\n\x05nonce\x18\x02 \x01(\x04R\x05nonce\x12\x34\n\x07\x62uiltin\x18\xe9\x07 \x01(\x0b\x32\x17.vega.BuiltinAssetEventH\x00R\x07\x62uiltin\x12)\n\x05\x65rc20\x18\xea\x07 \x01(\x0b\x32\x10.vega.ERC20EventH\x00R\x05\x65rc20\x12#\n\x03\x62tc\x18\xeb\x07 \x01(\x0b\x32\x0e.vega.BTCEventH\x00R\x03\x62tc\x12\x35\n\tvalidator\x18\xec\x07 \x01(\x0b\x32\x14.vega.ValidatorEventH\x00R\tvalidator\x12:\n\rstaking_event\x18\xed\x07 \x01(\x0b\x32\x12.vega.StakingEventH\x00R\x0cstakingEventB\x07\n\x05\x65vent*\x85\x01\n\x11NodeSignatureKind\x12#\n\x1fNODE_SIGNATURE_KIND_UNSPECIFIED\x10\x00\x12!\n\x1dNODE_SIGNATURE_KIND_ASSET_NEW\x10\x01\x12(\n$NODE_SIGNATURE_KIND_ASSET_WITHDRAWAL\x10\x02\x42.Z,code.vegaprotocol.io/protos/vega/commands/v1b\x06proto3'
+  serialized_pb=b'\n)vega/commands/v1/validator_commands.proto\x12\x10vega.commands.v1\x1a\x17vega/chain_events.proto\x1a\x36github.com/mwitkow/go-proto-validators/validator.proto\"\xd0\x02\n\x10NodeRegistration\x12(\n\x0cvega_pub_key\x18\x01 \x01(\tB\x06\xe2\xdf\x1f\x02X\x01R\nvegaPubKey\x12\x31\n\x10\x65thereum_address\x18\x02 \x01(\tB\x06\xe2\xdf\x1f\x02X\x01R\x0f\x65thereumAddress\x12*\n\rchain_pub_key\x18\x03 \x01(\tB\x06\xe2\xdf\x1f\x02X\x01R\x0b\x63hainPubKey\x12!\n\x08info_url\x18\x04 \x01(\tB\x06\xe2\xdf\x1f\x02X\x01R\x07infoUrl\x12 \n\x07\x63ountry\x18\x05 \x01(\tB\x06\xe2\xdf\x1f\x02X\x01R\x07\x63ountry\x12\x0e\n\x02id\x18\x06 \x01(\tR\x02id\x12\x12\n\x04name\x18\x07 \x01(\tR\x04name\x12\x1d\n\navatar_url\x18\x08 \x01(\tR\tavatarUrl\x12+\n\x12vega_pub_key_index\x18\t \x01(\rR\x0fvegaPubKeyIndex\"Q\n\x08NodeVote\x12\x1f\n\x07pub_key\x18\x01 \x01(\x0c\x42\x06\xe2\xdf\x1f\x02X\x01R\x06pubKey\x12$\n\treference\x18\x02 \x01(\tB\x06\xe2\xdf\x1f\x02X\x01R\treference\"j\n\rNodeSignature\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x10\n\x03sig\x18\x02 \x01(\x0cR\x03sig\x12\x37\n\x04kind\x18\x03 \x01(\x0e\x32#.vega.commands.v1.NodeSignatureKindR\x04kind\"\xb9\x02\n\nChainEvent\x12\x13\n\x05tx_id\x18\x01 \x01(\tR\x04txId\x12\x14\n\x05nonce\x18\x02 \x01(\x04R\x05nonce\x12\x34\n\x07\x62uiltin\x18\xe9\x07 \x01(\x0b\x32\x17.vega.BuiltinAssetEventH\x00R\x07\x62uiltin\x12)\n\x05\x65rc20\x18\xea\x07 \x01(\x0b\x32\x10.vega.ERC20EventH\x00R\x05\x65rc20\x12#\n\x03\x62tc\x18\xeb\x07 \x01(\x0b\x32\x0e.vega.BTCEventH\x00R\x03\x62tc\x12\x35\n\tvalidator\x18\xec\x07 \x01(\x0b\x32\x14.vega.ValidatorEventH\x00R\tvalidator\x12:\n\rstaking_event\x18\xed\x07 \x01(\x0b\x32\x12.vega.StakingEventH\x00R\x0cstakingEventB\x07\n\x05\x65vent\"\xb4\x01\n\x13KeyRotateSubmission\x12)\n\x11new_pub_key_index\x18\x01 \x01(\rR\x0enewPubKeyIndex\x12!\n\x0ctarget_block\x18\x02 \x01(\x04R\x0btargetBlock\x12\x1e\n\x0bnew_pub_key\x18\x03 \x01(\tR\tnewPubKey\x12/\n\x14\x63urrent_pub_key_hash\x18\x04 \x01(\tR\x11\x63urrentPubKeyHash*\x85\x01\n\x11NodeSignatureKind\x12#\n\x1fNODE_SIGNATURE_KIND_UNSPECIFIED\x10\x00\x12!\n\x1dNODE_SIGNATURE_KIND_ASSET_NEW\x10\x01\x12(\n$NODE_SIGNATURE_KIND_ASSET_WITHDRAWAL\x10\x02\x42.Z,code.vegaprotocol.io/protos/vega/commands/v1b\x06proto3'
   ,
   dependencies=[vega_dot_chain__events__pb2.DESCRIPTOR,github_dot_com_dot_mwitkow_dot_go__proto__validators_dot_validator__pb2.DESCRIPTOR,])
 
@@ -51,8 +51,8 @@ _NODESIGNATUREKIND = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=946,
-  serialized_end=1079,
+  serialized_start=1174,
+  serialized_end=1307,
 )
 _sym_db.RegisterEnumDescriptor(_NODESIGNATUREKIND)
 
@@ -127,6 +127,13 @@ _NODEREGISTRATION = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='avatarUrl', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='vega_pub_key_index', full_name='vega.commands.v1.NodeRegistration.vega_pub_key_index', index=8,
+      number=9, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='vegaPubKeyIndex', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -140,7 +147,7 @@ _NODEREGISTRATION = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=145,
-  serialized_end=436,
+  serialized_end=481,
 )
 
 
@@ -178,8 +185,8 @@ _NODEVOTE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=438,
-  serialized_end=519,
+  serialized_start=483,
+  serialized_end=564,
 )
 
 
@@ -224,8 +231,8 @@ _NODESIGNATURE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=521,
-  serialized_end=627,
+  serialized_start=566,
+  serialized_end=672,
 )
 
 
@@ -303,8 +310,61 @@ _CHAINEVENT = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=630,
-  serialized_end=943,
+  serialized_start=675,
+  serialized_end=988,
+)
+
+
+_KEYROTATESUBMISSION = _descriptor.Descriptor(
+  name='KeyRotateSubmission',
+  full_name='vega.commands.v1.KeyRotateSubmission',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='new_pub_key_index', full_name='vega.commands.v1.KeyRotateSubmission.new_pub_key_index', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='newPubKeyIndex', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='target_block', full_name='vega.commands.v1.KeyRotateSubmission.target_block', index=1,
+      number=2, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='targetBlock', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='new_pub_key', full_name='vega.commands.v1.KeyRotateSubmission.new_pub_key', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='newPubKey', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='current_pub_key_hash', full_name='vega.commands.v1.KeyRotateSubmission.current_pub_key_hash', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='currentPubKeyHash', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=991,
+  serialized_end=1171,
 )
 
 _NODESIGNATURE.fields_by_name['kind'].enum_type = _NODESIGNATUREKIND
@@ -332,6 +392,7 @@ DESCRIPTOR.message_types_by_name['NodeRegistration'] = _NODEREGISTRATION
 DESCRIPTOR.message_types_by_name['NodeVote'] = _NODEVOTE
 DESCRIPTOR.message_types_by_name['NodeSignature'] = _NODESIGNATURE
 DESCRIPTOR.message_types_by_name['ChainEvent'] = _CHAINEVENT
+DESCRIPTOR.message_types_by_name['KeyRotateSubmission'] = _KEYROTATESUBMISSION
 DESCRIPTOR.enum_types_by_name['NodeSignatureKind'] = _NODESIGNATUREKIND
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -362,6 +423,13 @@ ChainEvent = _reflection.GeneratedProtocolMessageType('ChainEvent', (_message.Me
   # @@protoc_insertion_point(class_scope:vega.commands.v1.ChainEvent)
   })
 _sym_db.RegisterMessage(ChainEvent)
+
+KeyRotateSubmission = _reflection.GeneratedProtocolMessageType('KeyRotateSubmission', (_message.Message,), {
+  'DESCRIPTOR' : _KEYROTATESUBMISSION,
+  '__module__' : 'vega.commands.v1.validator_commands_pb2'
+  # @@protoc_insertion_point(class_scope:vega.commands.v1.KeyRotateSubmission)
+  })
+_sym_db.RegisterMessage(KeyRotateSubmission)
 
 
 DESCRIPTOR._options = None

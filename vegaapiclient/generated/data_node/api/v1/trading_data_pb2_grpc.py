@@ -219,6 +219,16 @@ class TradingDataServiceStub(object):
                 request_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetNodeByIDRequest.SerializeToString,
                 response_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetNodeByIDResponse.FromString,
                 )
+        self.GetKeyRotations = channel.unary_unary(
+                '/datanode.api.v1.TradingDataService/GetKeyRotations',
+                request_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetKeyRotationsRequest.SerializeToString,
+                response_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetKeyRotationsResponse.FromString,
+                )
+        self.GetKeyRotationsByNode = channel.unary_unary(
+                '/datanode.api.v1.TradingDataService/GetKeyRotationsByNode',
+                request_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetKeyRotationsByNodeRequest.SerializeToString,
+                response_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetKeyRotationsByNodeResponse.FromString,
+                )
         self.GetEpoch = channel.unary_unary(
                 '/datanode.api.v1.TradingDataService/GetEpoch',
                 request_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetEpochRequest.SerializeToString,
@@ -354,6 +364,11 @@ class TradingDataServiceStub(object):
                 request_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.OracleDataBySpecRequest.SerializeToString,
                 response_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.OracleDataBySpecResponse.FromString,
                 )
+        self.ObserveRewardDetails = channel.unary_stream(
+                '/datanode.api.v1.TradingDataService/ObserveRewardDetails',
+                request_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.ObserveRewardDetailsRequest.SerializeToString,
+                response_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.ObserveRewardDetailsResponse.FromString,
+                )
         self.GetRewardDetails = channel.unary_unary(
                 '/datanode.api.v1.TradingDataService/GetRewardDetails',
                 request_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetRewardDetailsRequest.SerializeToString,
@@ -368,6 +383,11 @@ class TradingDataServiceStub(object):
                 '/datanode.api.v1.TradingDataService/Delegations',
                 request_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.DelegationsRequest.SerializeToString,
                 response_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.DelegationsResponse.FromString,
+                )
+        self.ObserveDelegations = channel.unary_stream(
+                '/datanode.api.v1.TradingDataService/ObserveDelegations',
+                request_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.ObserveDelegationsRequest.SerializeToString,
+                response_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.ObserveDelegationsResponse.FromString,
                 )
         self.PartyStake = channel.unary_unary(
                 '/datanode.api.v1.TradingDataService/PartyStake',
@@ -405,7 +425,7 @@ class TradingDataServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GlobalRewardPoolAccounts(self, request, context):
-        """Get a list of accounts holding rewards pools
+        """Get a list of accounts holding reward pools
         Can be filtered by asset, there will be 1 reward pool account per
         asset in the network.
         """
@@ -690,6 +710,20 @@ class TradingDataServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetKeyRotations(self, request, context):
+        """Get all key rotations
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetKeyRotationsByNode(self, request, context):
+        """Get all key rotations by node
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetEpoch(self, request, context):
         """Get data for a specific epoch, if id omitted it gets the current epoch
         """
@@ -882,8 +916,15 @@ class TradingDataServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ObserveRewardDetails(self, request, context):
+        """subscribe to reward details
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetRewardDetails(self, request, context):
-        """Get Rewards data
+        """Get Reward data
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -897,6 +938,13 @@ class TradingDataServiceServicer(object):
 
     def Delegations(self, request, context):
         """Get delegation data
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ObserveDelegations(self, request, context):
+        """subscribe to delegation events
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1116,6 +1164,16 @@ def add_TradingDataServiceServicer_to_server(servicer, server):
                     request_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetNodeByIDRequest.FromString,
                     response_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetNodeByIDResponse.SerializeToString,
             ),
+            'GetKeyRotations': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetKeyRotations,
+                    request_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetKeyRotationsRequest.FromString,
+                    response_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetKeyRotationsResponse.SerializeToString,
+            ),
+            'GetKeyRotationsByNode': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetKeyRotationsByNode,
+                    request_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetKeyRotationsByNodeRequest.FromString,
+                    response_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetKeyRotationsByNodeResponse.SerializeToString,
+            ),
             'GetEpoch': grpc.unary_unary_rpc_method_handler(
                     servicer.GetEpoch,
                     request_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetEpochRequest.FromString,
@@ -1251,6 +1309,11 @@ def add_TradingDataServiceServicer_to_server(servicer, server):
                     request_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.OracleDataBySpecRequest.FromString,
                     response_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.OracleDataBySpecResponse.SerializeToString,
             ),
+            'ObserveRewardDetails': grpc.unary_stream_rpc_method_handler(
+                    servicer.ObserveRewardDetails,
+                    request_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.ObserveRewardDetailsRequest.FromString,
+                    response_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.ObserveRewardDetailsResponse.SerializeToString,
+            ),
             'GetRewardDetails': grpc.unary_unary_rpc_method_handler(
                     servicer.GetRewardDetails,
                     request_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetRewardDetailsRequest.FromString,
@@ -1265,6 +1328,11 @@ def add_TradingDataServiceServicer_to_server(servicer, server):
                     servicer.Delegations,
                     request_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.DelegationsRequest.FromString,
                     response_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.DelegationsResponse.SerializeToString,
+            ),
+            'ObserveDelegations': grpc.unary_stream_rpc_method_handler(
+                    servicer.ObserveDelegations,
+                    request_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.ObserveDelegationsRequest.FromString,
+                    response_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.ObserveDelegationsResponse.SerializeToString,
             ),
             'PartyStake': grpc.unary_unary_rpc_method_handler(
                     servicer.PartyStake,
@@ -1979,6 +2047,40 @@ class TradingDataService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def GetKeyRotations(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/datanode.api.v1.TradingDataService/GetKeyRotations',
+            data__node_dot_api_dot_v1_dot_trading__data__pb2.GetKeyRotationsRequest.SerializeToString,
+            data__node_dot_api_dot_v1_dot_trading__data__pb2.GetKeyRotationsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetKeyRotationsByNode(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/datanode.api.v1.TradingDataService/GetKeyRotationsByNode',
+            data__node_dot_api_dot_v1_dot_trading__data__pb2.GetKeyRotationsByNodeRequest.SerializeToString,
+            data__node_dot_api_dot_v1_dot_trading__data__pb2.GetKeyRotationsByNodeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def GetEpoch(request,
             target,
             options=(),
@@ -2438,6 +2540,23 @@ class TradingDataService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def ObserveRewardDetails(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/datanode.api.v1.TradingDataService/ObserveRewardDetails',
+            data__node_dot_api_dot_v1_dot_trading__data__pb2.ObserveRewardDetailsRequest.SerializeToString,
+            data__node_dot_api_dot_v1_dot_trading__data__pb2.ObserveRewardDetailsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def GetRewardDetails(request,
             target,
             options=(),
@@ -2485,6 +2604,23 @@ class TradingDataService(object):
         return grpc.experimental.unary_unary(request, target, '/datanode.api.v1.TradingDataService/Delegations',
             data__node_dot_api_dot_v1_dot_trading__data__pb2.DelegationsRequest.SerializeToString,
             data__node_dot_api_dot_v1_dot_trading__data__pb2.DelegationsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ObserveDelegations(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/datanode.api.v1.TradingDataService/ObserveDelegations',
+            data__node_dot_api_dot_v1_dot_trading__data__pb2.ObserveDelegationsRequest.SerializeToString,
+            data__node_dot_api_dot_v1_dot_trading__data__pb2.ObserveDelegationsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
