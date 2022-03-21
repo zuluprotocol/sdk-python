@@ -20,7 +20,7 @@ from ... import chain_events_pb2 as vega_dot_chain__events__pb2
 from ... import governance_pb2 as vega_dot_governance__pb2
 from ...events.v1 import events_pb2 as vega_dot_events_dot_v1_dot_events__pb2
 from ...commands.v1 import validator_commands_pb2 as vega_dot_commands_dot_v1_dot_validator__commands__pb2
-from vega.checkpoint.v1 import checkpoint_pb2 as vega_dot_checkpoint_dot_v1_dot_checkpoint__pb2
+from ...checkpoint.v1 import checkpoint_pb2 as vega_dot_checkpoint_dot_v1_dot_checkpoint__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
