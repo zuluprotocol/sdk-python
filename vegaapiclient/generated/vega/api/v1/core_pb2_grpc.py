@@ -44,6 +44,21 @@ class CoreServiceStub(object):
                 request_serializer=vega_dot_api_dot_v1_dot_core__pb2.ObserveEventBusRequest.SerializeToString,
                 response_deserializer=vega_dot_api_dot_v1_dot_core__pb2.ObserveEventBusResponse.FromString,
                 )
+        self.SubmitRawTransaction = channel.unary_unary(
+                '/vega.api.v1.CoreService/SubmitRawTransaction',
+                request_serializer=vega_dot_api_dot_v1_dot_core__pb2.SubmitRawTransactionRequest.SerializeToString,
+                response_deserializer=vega_dot_api_dot_v1_dot_core__pb2.SubmitRawTransactionResponse.FromString,
+                )
+        self.CheckTransaction = channel.unary_unary(
+                '/vega.api.v1.CoreService/CheckTransaction',
+                request_serializer=vega_dot_api_dot_v1_dot_core__pb2.CheckTransactionRequest.SerializeToString,
+                response_deserializer=vega_dot_api_dot_v1_dot_core__pb2.CheckTransactionResponse.FromString,
+                )
+        self.CheckRawTransaction = channel.unary_unary(
+                '/vega.api.v1.CoreService/CheckRawTransaction',
+                request_serializer=vega_dot_api_dot_v1_dot_core__pb2.CheckRawTransactionRequest.SerializeToString,
+                response_deserializer=vega_dot_api_dot_v1_dot_core__pb2.CheckRawTransactionResponse.FromString,
+                )
 
 
 class CoreServiceServicer(object):
@@ -91,6 +106,27 @@ class CoreServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SubmitRawTransaction(self, request, context):
+        """Submit a version agnostic signed transaction
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CheckTransaction(self, request, context):
+        """Check a signed transaction
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CheckRawTransaction(self, request, context):
+        """Check a raw signed transaction
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_CoreServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -123,6 +159,21 @@ def add_CoreServiceServicer_to_server(servicer, server):
                     servicer.ObserveEventBus,
                     request_deserializer=vega_dot_api_dot_v1_dot_core__pb2.ObserveEventBusRequest.FromString,
                     response_serializer=vega_dot_api_dot_v1_dot_core__pb2.ObserveEventBusResponse.SerializeToString,
+            ),
+            'SubmitRawTransaction': grpc.unary_unary_rpc_method_handler(
+                    servicer.SubmitRawTransaction,
+                    request_deserializer=vega_dot_api_dot_v1_dot_core__pb2.SubmitRawTransactionRequest.FromString,
+                    response_serializer=vega_dot_api_dot_v1_dot_core__pb2.SubmitRawTransactionResponse.SerializeToString,
+            ),
+            'CheckTransaction': grpc.unary_unary_rpc_method_handler(
+                    servicer.CheckTransaction,
+                    request_deserializer=vega_dot_api_dot_v1_dot_core__pb2.CheckTransactionRequest.FromString,
+                    response_serializer=vega_dot_api_dot_v1_dot_core__pb2.CheckTransactionResponse.SerializeToString,
+            ),
+            'CheckRawTransaction': grpc.unary_unary_rpc_method_handler(
+                    servicer.CheckRawTransaction,
+                    request_deserializer=vega_dot_api_dot_v1_dot_core__pb2.CheckRawTransactionRequest.FromString,
+                    response_serializer=vega_dot_api_dot_v1_dot_core__pb2.CheckRawTransactionResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -233,5 +284,56 @@ class CoreService(object):
         return grpc.experimental.stream_stream(request_iterator, target, '/vega.api.v1.CoreService/ObserveEventBus',
             vega_dot_api_dot_v1_dot_core__pb2.ObserveEventBusRequest.SerializeToString,
             vega_dot_api_dot_v1_dot_core__pb2.ObserveEventBusResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubmitRawTransaction(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vega.api.v1.CoreService/SubmitRawTransaction',
+            vega_dot_api_dot_v1_dot_core__pb2.SubmitRawTransactionRequest.SerializeToString,
+            vega_dot_api_dot_v1_dot_core__pb2.SubmitRawTransactionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CheckTransaction(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vega.api.v1.CoreService/CheckTransaction',
+            vega_dot_api_dot_v1_dot_core__pb2.CheckTransactionRequest.SerializeToString,
+            vega_dot_api_dot_v1_dot_core__pb2.CheckTransactionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CheckRawTransaction(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vega.api.v1.CoreService/CheckRawTransaction',
+            vega_dot_api_dot_v1_dot_core__pb2.CheckRawTransactionRequest.SerializeToString,
+            vega_dot_api_dot_v1_dot_core__pb2.CheckRawTransactionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
