@@ -12,6 +12,87 @@ import "vega/oracles/v1/data.proto";
 import "vega/commands/v1/commands.proto";
 import "vega/commands/v1/validator_commands.proto";
 
+message ERC20MultiSigSignerAdded {
+  // The identifier of the signature bundle
+  string signature_id = 1;
+  // The vega node ID of the node to be added
+  string validator_id = 2;
+  // the time at which this happened
+  int64 timestamp = 3;
+ // The ethereum address of the new signer
+  string new_signer = 4;
+  // The address of the submitter of the transaction
+  string submitter = 5;
+  // The nonce used.
+  string nonce = 6;
+}
+
+message ERC20MulistSigSignerRemovedSubmitter {
+  // The ID of this signature bundle
+  string signature_id = 1;
+  // The address of the submitter of the transaction
+  string submitter = 2;
+}
+
+message ERC20MultiSigSignerRemoved {
+  // A list containing all the IDs of bundle generated
+  // There should be one bundle generated for every validators
+  // in the validator set
+  repeated ERC20MulistSigSignerRemovedSubmitter signature_submitters = 1;
+  // The vega node ID of the node which is to be removed
+  string validator_id = 2;
+  // the time at which this happened
+  int64 timestamp = 3;
+  // The ethereum address of the signer to be removed
+  string old_signer = 4;
+  // The nonce used.
+  string nonce = 5;
+}
+
+message Transfer {
+  enum Status {
+    // Default value
+    STATUS_UNSPECIFIED = 0;
+    // Indicate a transfer still being processed
+    STATUS_PENDING = 1;
+    // Indicate of an transfer accepted by the vega network
+    STATUS_DONE = 2;
+    // Indicate of an transfer rejected by the vega network
+    STATUS_REJECTED = 3;
+    // Indicate of a transfer stopped by the vega network
+    // e.g: no funds left to cover the transfer
+    STATUS_STOPPED = 4;
+    // Indicate of a transfer cancel by the user
+    STATUS_CANCELLED = 5;
+  }
+
+  string id = 1;
+  string from = 2;
+  vega.AccountType from_account_type = 3;
+  string to = 4;
+  vega.AccountType to_account_type = 5;
+  string asset = 6;
+  string amount = 7;
+  string reference = 8;
+  Status status = 9;
+  int64 timestamp = 10;
+
+  oneof kind {
+    OneOffTransfer one_off = 101;
+    RecurringTransfer recurring = 102;
+  }
+}
+
+message OneOffTransfer {
+  int64 deliver_on = 1;
+}
+
+message RecurringTransfer {
+  uint64 start_epoch = 1;
+  vega.Uint64Value end_epoch = 2;
+  string factor = 3;
+}
+
 // StakeLinking - an event notifying of stake being deposited or removed for a given party
 // These events are emitted for every Staking deposit or removed accepted by the network
 message StakeLinking {
@@ -51,6 +132,41 @@ message StakeLinking {
   int64 finalized_at = 7;
   // The hash of the transaction from which the events happen
   string tx_hash = 8;
+  // The block when the event happened
+  uint64 block_height = 9;
+  // The block time
+  int64 block_time = 10;
+  // The log index
+  uint64 log_index = 11;
+  // the ethereum address from which the stake link was iniated
+  string ethereum_address = 12;
+}
+
+message ERC20MultiSigSignerEvent {
+  enum Type {
+    TYPE_UNSPECIFIED = 0;
+    TYPE_ADDED = 1;
+    TYPE_REMOVED = 2;
+  }
+
+  string id = 1;
+  Type type = 2;
+  string signer = 3;
+  string nonce = 4;
+  int64 block_time = 5;
+  string tx_hash = 6;
+  uint64 log_index = 7;
+  uint64 block_number = 8;
+}
+
+message ERC20MultiSigThresholdSetEvent {
+  string id = 1;
+  uint32 new_threshold = 2;
+  string nonce = 3;
+  int64 block_time = 4;
+  string tx_hash = 5;
+  uint64 log_index = 6;
+  uint64 block_number = 7;
 }
 
 message CheckpointEvent {
@@ -78,6 +194,10 @@ message ValidatorScoreEvent {
   string epoch_seq = 2;
   string validator_score = 3;
   string normalised_score = 4;
+  string validator_performance = 5;
+  string raw_validator_score = 6;
+  string validator_status = 7;
+  string multisig_score = 8;
 }
 
 //DelegationBalanceEvent - updates on the delegation balance of a party to a node in the current epoch in effect
@@ -114,6 +234,10 @@ message TxErrorEvent {
     commands.v1.DelegateSubmission delegate_submission = 108;
     commands.v1.UndelegateSubmission undelegate_submission = 109;
     commands.v1.RestoreSnapshot restore_snapshot = 110;
+    commands.v1.LiquidityProvisionCancellation liquidity_provision_cancellation = 111;
+    commands.v1.LiquidityProvisionAmendment liquidity_provision_amendment = 112;
+    commands.v1.Transfer transfer = 113;
+    commands.v1.CancelTransfer cancel_transfer = 114;
   }
 }
 
@@ -183,6 +307,24 @@ message SettlePosition {
   string price = 3;
   // A collection of 1 or more trade settlements
   repeated TradeSettlement trade_settlements = 4;
+  // Position factor - 10 ^ number of position decimal places
+  string position_factor = 5;
+}
+
+// A position state event contains the current position state for a single party in a single market
+message PositionStateEvent {
+  // Party identifier for this position update
+  string party_id = 1;
+  // Market identifier for this position update
+  string market_id = 2;
+  // Current position
+  int64 size = 3;
+  // Potential orders
+  int64 potential_buys = 4;
+  int64 potential_sells = 5;
+  // Volume weighted prices
+  string vw_buy_price = 6;
+  string vw_sell_price = 7;
 }
 
 // A settle distressed event contains information on distressed trading parties who are closed out
@@ -248,7 +390,31 @@ message ValidatorUpdate {
   string avatar_url = 8;
   // Vega public key derivation index
   uint32 vega_pub_key_index = 9;
+  // Flag indicating if the validator has been added to or removed from vega
+  bool added = 10;
+  // The epoch from which the validator was added
+  uint64 from_epoch = 11;
 }
+
+// An event that explains the status of the validator for the coming epoch
+message ValidatorRankingEvent {
+  string node_id = 1;
+  // stake based score - no anti-whaling
+  string stake_score = 2;
+  // performance base score
+  string performance_score = 3;
+  // final score
+  string ranking_score = 4;
+  // the status of the validator in the previous epoch
+  string previous_status = 5;
+  // the status of the validator in the next epoch
+  string next_status = 6;
+  // the epoch seq for which the status is valid
+  string epoch_seq = 7;
+  // tendermint voting power of the validator
+  uint32 tm_voting_power = 8;
+}
+
 
 // A key rotation events contains information about Vega key rotation
 message KeyRotation {
@@ -260,6 +426,13 @@ message KeyRotation {
   string new_pub_key = 3;
   // Height of the block where key rotation took effect
   uint64 block_height = 4;
+}
+
+//StateVarEvent - updates on state changes in state variable consensus
+message StateVar {
+  string id = 1;
+  string event_id = 2;
+  string state = 3;
 }
 
 // An (event) bus event type is used to specify a type of event
@@ -343,6 +516,24 @@ enum BusEventType {
   BUS_EVENT_TYPE_STREAM_START = 36;
   // Event indicating key rotation took place
   BUS_EVENT_TYPE_KEY_ROTATION = 37;
+  // Event indicating state transitions in state variable consensus
+  BUS_EVENT_TYPE_STATE_VAR = 38;
+  // Event indicating network limits set or updated
+  BUS_EVENT_TYPE_NETWORK_LIMITS = 39;
+  // Event indicating a update for a transfert
+  BUS_EVENT_TYPE_TRANSFER = 40;
+  // Event indicating the ranking of validator and their status in vega
+  BUS_EVENT_TYPE_VALIDATOR_RANKING = 41;
+  // Event indicating a new multi sig signer event have been processed
+  BUS_EVENT_TYPE_ERC20_MULTI_SIG_SIGNER_EVENT = 42;
+  // Event indicating the erc20 multi sig threshold have been updated
+  BUS_EVENT_TYPE_ERC20_MULTI_SIG_SET_THRESHOLD = 43;
+  // Event indicating a new signer has been added to the erc20 multisig
+  BUS_EVENT_TYPE_ERC20_MULTI_SIG_SIGNER_ADDED = 44;
+  // Event indicating a signer has been removed from the erc20 multisig
+  BUS_EVENT_TYPE_ERC20_MULTI_SIG_SIGNER_REMOVED = 45;
+  // Event indicting that a party's position has changed
+  BUS_EVENT_TYPE_POSITION_STATE = 46;
 
   // Event indicating a market related event, for example when a market opens
   BUS_EVENT_TYPE_MARKET = 101;
@@ -429,6 +620,24 @@ message BusEvent {
     CheckpointEvent checkpoint = 135;
     // Key rotation took place
     KeyRotation key_rotation = 136;
+    // State variable consensus state transition update
+    StateVar state_var = 137;
+    // Network limits events
+    NetworkLimits network_limits = 138;
+    // Transfer event
+    Transfer transfer = 139;
+    // Ranking event
+    ValidatorRankingEvent ranking_event = 140;
+    // ERC20 multi sig signer event
+    ERC20MultiSigSignerEvent erc20_multisig_signer_event = 141;
+    // ERC20 multi sig set threshold event
+    ERC20MultiSigThresholdSetEvent erc20_multisig_set_threshold_event = 142;
+    // ERC20 multi sig signer added
+    ERC20MultiSigSignerAdded erc20_multisig_signer_added = 143;
+    // ERC20 multi sig signer removed
+    ERC20MultiSigSignerRemoved erc20_multisig_signer_removed = 144;
+    // Position status for a party in a market
+    PositionStateEvent position_state_event = 145;
 
     // Market tick events - See [MarketEvent](#vega.MarketEvent)
     MarketEvent market = 1001;
@@ -438,4 +647,5 @@ message BusEvent {
   // Version of bus event
   uint32 version = 4;
   string chain_id = 5;
+  string tx_hash = 6;
 }

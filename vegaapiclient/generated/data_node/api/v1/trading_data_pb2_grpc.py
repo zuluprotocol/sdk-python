@@ -169,6 +169,11 @@ class TradingDataServiceStub(object):
                 request_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetNewAssetProposalsRequest.SerializeToString,
                 response_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetNewAssetProposalsResponse.FromString,
                 )
+        self.GetNewFreeformProposals = channel.unary_unary(
+                '/datanode.api.v1.TradingDataService/GetNewFreeformProposals',
+                request_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetNewFreeformProposalsRequest.SerializeToString,
+                response_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetNewFreeformProposalsResponse.FromString,
+                )
         self.GetProposalByID = channel.unary_unary(
                 '/datanode.api.v1.TradingDataService/GetProposalByID',
                 request_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetProposalByIDRequest.SerializeToString,
@@ -364,15 +369,20 @@ class TradingDataServiceStub(object):
                 request_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.OracleDataBySpecRequest.SerializeToString,
                 response_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.OracleDataBySpecResponse.FromString,
                 )
-        self.ObserveRewardDetails = channel.unary_stream(
-                '/datanode.api.v1.TradingDataService/ObserveRewardDetails',
-                request_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.ObserveRewardDetailsRequest.SerializeToString,
-                response_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.ObserveRewardDetailsResponse.FromString,
+        self.ObserveRewards = channel.unary_stream(
+                '/datanode.api.v1.TradingDataService/ObserveRewards',
+                request_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.ObserveRewardsRequest.SerializeToString,
+                response_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.ObserveRewardsResponse.FromString,
                 )
-        self.GetRewardDetails = channel.unary_unary(
-                '/datanode.api.v1.TradingDataService/GetRewardDetails',
-                request_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetRewardDetailsRequest.SerializeToString,
-                response_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetRewardDetailsResponse.FromString,
+        self.GetRewards = channel.unary_unary(
+                '/datanode.api.v1.TradingDataService/GetRewards',
+                request_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetRewardsRequest.SerializeToString,
+                response_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetRewardsResponse.FromString,
+                )
+        self.GetRewardSummaries = channel.unary_unary(
+                '/datanode.api.v1.TradingDataService/GetRewardSummaries',
+                request_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetRewardSummariesRequest.SerializeToString,
+                response_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetRewardSummariesResponse.FromString,
                 )
         self.Checkpoints = channel.unary_unary(
                 '/datanode.api.v1.TradingDataService/Checkpoints',
@@ -393,6 +403,11 @@ class TradingDataServiceStub(object):
                 '/datanode.api.v1.TradingDataService/PartyStake',
                 request_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.PartyStakeRequest.SerializeToString,
                 response_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.PartyStakeResponse.FromString,
+                )
+        self.Transfers = channel.unary_unary(
+                '/datanode.api.v1.TradingDataService/Transfers',
+                request_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.TransfersRequest.SerializeToString,
+                response_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.TransfersResponse.FromString,
                 )
 
 
@@ -633,6 +648,13 @@ class TradingDataServiceServicer(object):
 
     def GetNewAssetProposals(self, request, context):
         """Get governance data (proposals and votes) for proposals aiming to create new assets
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetNewFreeformProposals(self, request, context):
+        """Get governance data (proposals and votes) for proposals aiming to create freeform proposals
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -916,15 +938,22 @@ class TradingDataServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ObserveRewardDetails(self, request, context):
-        """subscribe to reward details
+    def ObserveRewards(self, request, context):
+        """subscribe to rewards
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetRewardDetails(self, request, context):
-        """Get Reward data
+    def GetRewards(self, request, context):
+        """Get rewards
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetRewardSummaries(self, request, context):
+        """Get reward summaries
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -951,6 +980,12 @@ class TradingDataServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def PartyStake(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Transfers(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1113,6 +1148,11 @@ def add_TradingDataServiceServicer_to_server(servicer, server):
                     servicer.GetNewAssetProposals,
                     request_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetNewAssetProposalsRequest.FromString,
                     response_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetNewAssetProposalsResponse.SerializeToString,
+            ),
+            'GetNewFreeformProposals': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetNewFreeformProposals,
+                    request_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetNewFreeformProposalsRequest.FromString,
+                    response_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetNewFreeformProposalsResponse.SerializeToString,
             ),
             'GetProposalByID': grpc.unary_unary_rpc_method_handler(
                     servicer.GetProposalByID,
@@ -1309,15 +1349,20 @@ def add_TradingDataServiceServicer_to_server(servicer, server):
                     request_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.OracleDataBySpecRequest.FromString,
                     response_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.OracleDataBySpecResponse.SerializeToString,
             ),
-            'ObserveRewardDetails': grpc.unary_stream_rpc_method_handler(
-                    servicer.ObserveRewardDetails,
-                    request_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.ObserveRewardDetailsRequest.FromString,
-                    response_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.ObserveRewardDetailsResponse.SerializeToString,
+            'ObserveRewards': grpc.unary_stream_rpc_method_handler(
+                    servicer.ObserveRewards,
+                    request_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.ObserveRewardsRequest.FromString,
+                    response_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.ObserveRewardsResponse.SerializeToString,
             ),
-            'GetRewardDetails': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetRewardDetails,
-                    request_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetRewardDetailsRequest.FromString,
-                    response_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetRewardDetailsResponse.SerializeToString,
+            'GetRewards': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetRewards,
+                    request_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetRewardsRequest.FromString,
+                    response_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetRewardsResponse.SerializeToString,
+            ),
+            'GetRewardSummaries': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetRewardSummaries,
+                    request_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetRewardSummariesRequest.FromString,
+                    response_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.GetRewardSummariesResponse.SerializeToString,
             ),
             'Checkpoints': grpc.unary_unary_rpc_method_handler(
                     servicer.Checkpoints,
@@ -1338,6 +1383,11 @@ def add_TradingDataServiceServicer_to_server(servicer, server):
                     servicer.PartyStake,
                     request_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.PartyStakeRequest.FromString,
                     response_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.PartyStakeResponse.SerializeToString,
+            ),
+            'Transfers': grpc.unary_unary_rpc_method_handler(
+                    servicer.Transfers,
+                    request_deserializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.TransfersRequest.FromString,
+                    response_serializer=data__node_dot_api_dot_v1_dot_trading__data__pb2.TransfersResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1873,6 +1923,23 @@ class TradingDataService(object):
         return grpc.experimental.unary_unary(request, target, '/datanode.api.v1.TradingDataService/GetNewAssetProposals',
             data__node_dot_api_dot_v1_dot_trading__data__pb2.GetNewAssetProposalsRequest.SerializeToString,
             data__node_dot_api_dot_v1_dot_trading__data__pb2.GetNewAssetProposalsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetNewFreeformProposals(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/datanode.api.v1.TradingDataService/GetNewFreeformProposals',
+            data__node_dot_api_dot_v1_dot_trading__data__pb2.GetNewFreeformProposalsRequest.SerializeToString,
+            data__node_dot_api_dot_v1_dot_trading__data__pb2.GetNewFreeformProposalsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -2540,7 +2607,7 @@ class TradingDataService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ObserveRewardDetails(request,
+    def ObserveRewards(request,
             target,
             options=(),
             channel_credentials=None,
@@ -2550,14 +2617,14 @@ class TradingDataService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_stream(request, target, '/datanode.api.v1.TradingDataService/ObserveRewardDetails',
-            data__node_dot_api_dot_v1_dot_trading__data__pb2.ObserveRewardDetailsRequest.SerializeToString,
-            data__node_dot_api_dot_v1_dot_trading__data__pb2.ObserveRewardDetailsResponse.FromString,
+        return grpc.experimental.unary_stream(request, target, '/datanode.api.v1.TradingDataService/ObserveRewards',
+            data__node_dot_api_dot_v1_dot_trading__data__pb2.ObserveRewardsRequest.SerializeToString,
+            data__node_dot_api_dot_v1_dot_trading__data__pb2.ObserveRewardsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetRewardDetails(request,
+    def GetRewards(request,
             target,
             options=(),
             channel_credentials=None,
@@ -2567,9 +2634,26 @@ class TradingDataService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/datanode.api.v1.TradingDataService/GetRewardDetails',
-            data__node_dot_api_dot_v1_dot_trading__data__pb2.GetRewardDetailsRequest.SerializeToString,
-            data__node_dot_api_dot_v1_dot_trading__data__pb2.GetRewardDetailsResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/datanode.api.v1.TradingDataService/GetRewards',
+            data__node_dot_api_dot_v1_dot_trading__data__pb2.GetRewardsRequest.SerializeToString,
+            data__node_dot_api_dot_v1_dot_trading__data__pb2.GetRewardsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetRewardSummaries(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/datanode.api.v1.TradingDataService/GetRewardSummaries',
+            data__node_dot_api_dot_v1_dot_trading__data__pb2.GetRewardSummariesRequest.SerializeToString,
+            data__node_dot_api_dot_v1_dot_trading__data__pb2.GetRewardSummariesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -2638,5 +2722,22 @@ class TradingDataService(object):
         return grpc.experimental.unary_unary(request, target, '/datanode.api.v1.TradingDataService/PartyStake',
             data__node_dot_api_dot_v1_dot_trading__data__pb2.PartyStakeRequest.SerializeToString,
             data__node_dot_api_dot_v1_dot_trading__data__pb2.PartyStakeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Transfers(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/datanode.api.v1.TradingDataService/Transfers',
+            data__node_dot_api_dot_v1_dot_trading__data__pb2.TransfersRequest.SerializeToString,
+            data__node_dot_api_dot_v1_dot_trading__data__pb2.TransfersResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

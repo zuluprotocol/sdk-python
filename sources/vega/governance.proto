@@ -3,8 +3,6 @@ syntax = "proto3";
 package vega;
 option go_package = "code.vegaprotocol.io/protos/vega";
 
-import "github.com/mwitkow/go-proto-validators/validator.proto";
-
 import "vega/markets.proto";
 import "vega/vega.proto";
 import "vega/assets.proto";
@@ -12,12 +10,10 @@ import "vega/oracles/v1/spec.proto";
 
 // Future product configuration
 message FutureProduct {
-  // Future product maturity (ISO8601/RFC3339 timestamp)
-  string maturity = 1 [(validator.field) = {string_not_empty : true}];
   // Product settlement asset identifier
-  string settlement_asset = 2  [(validator.field) = {string_not_empty : true}];
+  string settlement_asset = 2 ;
   // Product quote name
-  string quote_name = 3 [(validator.field) = {string_not_empty : true}];
+  string quote_name = 3;
   // The oracle spec describing the oracle data of settlement price
   oracles.v1.OracleSpecConfiguration oracle_spec_for_settlement_price = 5;
   // The oracle spec describing the oracle data of trading termination
@@ -29,9 +25,9 @@ message FutureProduct {
 // Instrument configuration
 message InstrumentConfiguration {
   // Instrument name
-  string name = 1 [(validator.field) = {string_not_empty : true}];
+  string name = 1;
   // Instrument code
-  string code = 2 [(validator.field) = {string_not_empty : true}];
+  string code = 2;
   // Product specification
   oneof product {
     // Future
@@ -42,9 +38,9 @@ message InstrumentConfiguration {
 // Configuration for a new market on Vega
 message NewMarketConfiguration {
   // New market instrument configuration
-  InstrumentConfiguration instrument = 1 [(validator.field) = {msg_exists: true}];
+  InstrumentConfiguration instrument = 1;
   // Decimal places used for the new market
-  uint64 decimal_places = 2 [(validator.field) = {int_lt: 150}];
+  uint64 decimal_places = 2;
   // Optional new market meta data, tags
   repeated string metadata = 3;
   // Price monitoring parameters
@@ -58,13 +54,8 @@ message NewMarketConfiguration {
     // Log normal risk model parameters, valid only if MODEL_LOG_NORMAL is selected
     LogNormalRiskModel log_normal = 101;
   }
-  // Trading mode for the new market
-  oneof trading_mode {
-    // Continuous trading
-    ContinuousTrading continuous = 200;
-    // Discrete trading
-    DiscreteTrading discrete = 201;
-  }
+  // Decimal places for order sizes
+  uint64 position_decimal_places = 6;
 }
 
 // A commitment of liquidity to be made by the party which proposes a market
@@ -76,7 +67,7 @@ message NewMarketCommitment {
   // A set of liquidity sell orders to meet the liquidity provision obligation
   repeated LiquidityOrder sells = 3;
   // A set of liquidity buy orders to meet the liquidity provision obligation
-  repeated LiquidityOrder buys  = 4;
+  repeated LiquidityOrder buys = 4;
   // A reference to be associated to all orders created from this commitment
   string reference = 5;
 
@@ -88,28 +79,72 @@ message NewMarketCommitment {
 // New market on Vega
 message NewMarket {
   // The configuration of the new market
-  NewMarketConfiguration changes = 1 [(validator.field) = {msg_exists: true}];
+  NewMarketConfiguration changes = 1;
   // The commitment from the party creating the NewMarket proposal
-  NewMarketCommitment liquidity_commitment = 2 /* THIS TO BE UN-COMMENTED ONCE WE MAKE THE COMMITMENT MANDATORY [(validator.field) = {msg_exists: true}] */;
+  NewMarketCommitment liquidity_commitment = 2;
 }
 
 // Update an existing market on Vega
-message UpdateMarket { }
+message UpdateMarket {
+  // The updated configuration of the market
+  UpdateMarketConfiguration changes = 1;
+}
+
+// Configuration to update a market on Vega
+message UpdateMarketConfiguration {
+  // Updated market instrument configuration
+  UpdateInstrumentConfiguration instrument = 1;
+  // Optional market metadata, tags
+  repeated string metadata = 2;
+  // Price monitoring parameters
+  PriceMonitoringParameters price_monitoring_parameters = 3;
+  // Liquidity monitoring parameters
+  LiquidityMonitoringParameters liquidity_monitoring_parameters = 4;
+  // Updated market risk model parameters
+  oneof risk_parameters {
+    // Simple risk model parameters, valid only if MODEL_SIMPLE is selected
+    SimpleModelParams simple = 100;
+    // Log normal risk model parameters, valid only if MODEL_LOG_NORMAL is selected
+    LogNormalRiskModel log_normal = 101;
+  }
+}
+
+// Instrument configuration
+message UpdateInstrumentConfiguration {
+  // Instrument code
+  string code = 1;
+  // Product specification
+  oneof product {
+    // Future
+    UpdateFutureProduct future = 100;
+  }
+}
+
+// Future product configuration
+message UpdateFutureProduct {
+  // Product quote name
+  string quote_name = 1;
+  // The oracle spec describing the oracle data of settlement price
+  oracles.v1.OracleSpecConfiguration oracle_spec_for_settlement_price = 2;
+  // The oracle spec describing the oracle data of trading termination
+  oracles.v1.OracleSpecConfiguration oracle_spec_for_trading_termination = 3;
+  // The binding between the oracle spec and the settlement price
+  OracleSpecToFutureBinding oracle_spec_binding = 4;
+}
 
 // Update network configuration on Vega
 message UpdateNetworkParameter {
   // The network parameter to update
-  NetworkParameter changes = 1 [(validator.field) = {msg_exists: true}];
+  NetworkParameter changes = 1;
 }
 
 // New asset on Vega
 message NewAsset {
   // The configuration of the new asset
-  AssetDetails changes = 1 [(validator.field) = {msg_exists: true}];
+  AssetDetails changes = 1;
 }
 
-// Freeform proposal
-message NewFreeform {
+message NewFreeformDetails {
   // The URL containing content that describes the proposal
   string url = 1;
   // A short description of what is being proposed
@@ -118,14 +153,20 @@ message NewFreeform {
   string hash = 3;
 }
 
+// Freeform proposal
+message NewFreeform {
+  // The configuration of the new freeform
+  NewFreeformDetails changes = 1;
+}
+
 // Terms for a governance proposal on Vega
 message ProposalTerms {
   // Timestamp (Unix time in seconds) when voting closes for this proposal,
   // constrained by `minClose` and `maxClose` network parameters
-  int64 closing_timestamp = 1 [(validator.field) = {int_gt: 0}];
+  int64 closing_timestamp = 1;
   // Timestamp (Unix time in seconds) when proposal gets enacted (if passed),
   // constrained by `minEnact` and `maxEnact` network parameters
-  int64 enactment_timestamp = 2 [(validator.field) = {int_gt: 0}];
+  int64 enactment_timestamp = 2;
   // Validation timestamp (Unix time in seconds)
   int64 validation_timestamp = 3;
   // Changes being proposed
@@ -199,13 +240,13 @@ message Proposal {
   // Proposal reference
   string reference = 2;
   // Party identifier of the author (the party submitting the proposal)
-  string party_id = 3 [(validator.field) = {string_not_empty : true}];
+  string party_id = 3;
   // Proposal state - See (Proposal.State)[#vega.Proposal.State] definition
-  State state = 4 [(validator.field) = {is_in_enum: true}];
+  State state = 4;
   // Proposal timestamp for date and time (in nanoseconds) when proposal was submitted to the network
   int64 timestamp = 5;
   // Proposal configuration and the actual change that is meant to be executed when proposal is enacted
-  ProposalTerms terms = 6 [(validator.field) = {msg_exists: true}];
+  ProposalTerms terms = 6;
   // A reason for the current state of the proposal, this may be set in case of REJECTED and FAILED statuses
   ProposalError reason = 7;
   // The detailed error associated to the reason.
@@ -233,10 +274,6 @@ enum ProposalError {
   PROPOSAL_ERROR_NO_PRODUCT = 7;
   // The specified product is not supported
   PROPOSAL_ERROR_UNSUPPORTED_PRODUCT = 8;
-  // Invalid future maturity timestamp (expect RFC3339)
-  PROPOSAL_ERROR_INVALID_FUTURE_PRODUCT_TIMESTAMP = 9;
-  // The product maturity is past
-  PROPOSAL_ERROR_PRODUCT_MATURITY_IS_PASSED = 10;
   // The proposal has no trading mode
   PROPOSAL_ERROR_NO_TRADING_MODE = 11;
   // The proposal has an unsupported trading mode
@@ -277,12 +314,23 @@ enum ProposalError {
   PROPOSAL_ERROR_INVALID_SHAPE = 29;
   // Market proposal invalid risk parameter
   PROPOSAL_ERROR_INVALID_RISK_PARAMETER = 30;
-  // Proposal was declined because vote didn't reach the majority thershold required
+  // Proposal was declined because vote didn't reach the majority threshold required
   PROPOSAL_ERROR_MAJORITY_THRESHOLD_NOT_REACHED = 31;
   // Proposal declined because the participation threshold was not reached
   PROPOSAL_ERROR_PARTICIPATION_THRESHOLD_NOT_REACHED = 32;
   // Asset proposal invalid asset details
   PROPOSAL_ERROR_INVALID_ASSET_DETAILS = 33;
+  // Proposal is an unknown type.
+  PROPOSAL_ERROR_UNKNOWN_TYPE = 34;
+  // Proposal has an unknown risk parameter type.
+  PROPOSAL_ERROR_UNKNOWN_RISK_PARAMETER_TYPE = 35;
+  // Validation failed for freeform proposal.
+  PROPOSAL_ERROR_INVALID_FREEFORM = 36;
+  // The party doesn't have enough equity-like share to propose an update on the market
+  // targeted by the proposal.
+  PROPOSAL_ERROR_INSUFFICIENT_EQUITY_LIKE_SHARE = 37;
+  // The market targeted by the proposal does not exist or is not eligible to modification.
+  PROPOSAL_ERROR_INVALID_MARKET = 38;
 }
 
 // Governance vote
@@ -293,7 +341,7 @@ message Vote {
     // Default value, always invalid
     VALUE_UNSPECIFIED = 0;
     // A vote against the proposal
-    VALUE_NO  = 1;
+    VALUE_NO = 1;
     // A vote in favour of the proposal
     VALUE_YES = 2;
 
@@ -303,15 +351,17 @@ message Vote {
   }
 
   // Voter's party identifier
-  string party_id = 1 [(validator.field) = {string_not_empty : true}];
+  string party_id = 1;
   // Actual vote
-  Value value = 2 [(validator.field) = {is_in_enum : true}];
+  Value value = 2;
   // Identifier of the proposal being voted on
-  string proposal_id = 3 [(validator.field) = {string_not_empty : true}];
+  string proposal_id = 3;
   // Vote timestamp for date and time (in nanoseconds) when vote was submitted to the network
   int64 timestamp = 4;
   // Total number of governance token for the party that casted the vote
   string total_governance_token_balance = 5;
   // The weight of this vote based on the total of governance token
   string total_governance_token_weight = 6;
+  // The weight of the vote compared to the total number of equity-like share on the market.
+  string total_equity_like_share_weight = 7;
 }

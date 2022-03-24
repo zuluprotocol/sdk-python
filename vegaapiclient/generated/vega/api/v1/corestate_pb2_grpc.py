@@ -29,6 +29,11 @@ class CoreStateServiceStub(object):
                 request_serializer=vega_dot_api_dot_v1_dot_corestate__pb2.ListNetworkParametersRequest.SerializeToString,
                 response_deserializer=vega_dot_api_dot_v1_dot_corestate__pb2.ListNetworkParametersResponse.FromString,
                 )
+        self.ListNetworkLimits = channel.unary_unary(
+                '/vega.api.v1.CoreStateService/ListNetworkLimits',
+                request_serializer=vega_dot_api_dot_v1_dot_corestate__pb2.ListNetworkLimitsRequest.SerializeToString,
+                response_deserializer=vega_dot_api_dot_v1_dot_corestate__pb2.ListNetworkLimitsResponse.FromString,
+                )
         self.ListParties = channel.unary_unary(
                 '/vega.api.v1.CoreStateService/ListParties',
                 request_serializer=vega_dot_api_dot_v1_dot_corestate__pb2.ListPartiesRequest.SerializeToString,
@@ -87,6 +92,12 @@ class CoreStateServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListNetworkParameters(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListNetworkLimits(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -157,6 +168,11 @@ def add_CoreStateServiceServicer_to_server(servicer, server):
                     servicer.ListNetworkParameters,
                     request_deserializer=vega_dot_api_dot_v1_dot_corestate__pb2.ListNetworkParametersRequest.FromString,
                     response_serializer=vega_dot_api_dot_v1_dot_corestate__pb2.ListNetworkParametersResponse.SerializeToString,
+            ),
+            'ListNetworkLimits': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListNetworkLimits,
+                    request_deserializer=vega_dot_api_dot_v1_dot_corestate__pb2.ListNetworkLimitsRequest.FromString,
+                    response_serializer=vega_dot_api_dot_v1_dot_corestate__pb2.ListNetworkLimitsResponse.SerializeToString,
             ),
             'ListParties': grpc.unary_unary_rpc_method_handler(
                     servicer.ListParties,
@@ -256,6 +272,23 @@ class CoreStateService(object):
         return grpc.experimental.unary_unary(request, target, '/vega.api.v1.CoreStateService/ListNetworkParameters',
             vega_dot_api_dot_v1_dot_corestate__pb2.ListNetworkParametersRequest.SerializeToString,
             vega_dot_api_dot_v1_dot_corestate__pb2.ListNetworkParametersResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListNetworkLimits(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vega.api.v1.CoreStateService/ListNetworkLimits',
+            vega_dot_api_dot_v1_dot_corestate__pb2.ListNetworkLimitsRequest.SerializeToString,
+            vega_dot_api_dot_v1_dot_corestate__pb2.ListNetworkLimitsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

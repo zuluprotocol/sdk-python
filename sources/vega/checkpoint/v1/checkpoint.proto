@@ -6,6 +6,7 @@ option go_package = "code.vegaprotocol.io/protos/vega/checkpoint/v1";
 import "vega/vega.proto";
 import "vega/assets.proto";
 import "vega/governance.proto";
+import "vega/events/v1/events.proto";
 
 // CheckpointState is the entire checkpoint serialised (basically serialised the Checkpoint message + hash)
 message CheckpointState {
@@ -23,7 +24,10 @@ message Checkpoint {
   bytes epoch = 6; // will just be an epoch event
   bytes block = 7;
   bytes rewards = 8;
-  bytes key_rotations = 9;
+  bytes banking = 9;
+  bytes validators = 10;
+  bytes staking = 11;
+  bytes multisig_control = 12;
 }
 
 // AssetEntrty is a single (enabled) asset
@@ -92,14 +96,14 @@ message RewardPayout {
 }
 
 message PendingRewardPayout {
-	string from_account = 1;
-	string asset = 2;        
-	repeated PartyAmount party_amount = 3;
-	string total_reward = 4;
-	string epoch_seq = 5;
-	int64 timestamp = 6;
+  string from_account = 1;
+  string asset = 2;
+  repeated PartyAmount party_amount = 3;
+  string total_reward = 4;
+  string epoch_seq = 5;
+  int64 timestamp = 6;
 }
-  
+
 message PartyAmount {
   string party = 1;
   string amount = 2;
@@ -114,6 +118,47 @@ message PendingKeyRotation {
   uint32 new_pub_key_index = 4;
 }
 
-message KeyRotations {
-  repeated PendingKeyRotation pending_key_rotations = 1;
+message ScheduledTransfer {
+  vega.Transfer transfer = 1;
+  vega.AccountType account_type = 2;
+  string reference = 3;
+  vega.events.v1.Transfer oneoff_transfer = 4;
+}
+
+message ScheduledTransferAtTime {
+  int64 deliver_on = 1;
+  repeated ScheduledTransfer transfers = 2;
+}
+
+message RecurringTransfers {
+  repeated vega.events.v1.Transfer recurring_transfers = 1;
+}
+
+message Banking {
+  repeated ScheduledTransferAtTime transfers_at_time = 1;
+  RecurringTransfers recurring_transfers = 2;
+}
+
+message Validators {
+  repeated ValidatorState validator_state = 1;
+  repeated PendingKeyRotation pending_key_rotations = 2;
+}
+
+message ValidatorState {
+  vega.events.v1.ValidatorUpdate validator_update = 1;
+  int32 status = 2;
+  uint64 eth_events_forwarded = 3;
+  int64 validator_power = 4;
+  vega.RankingScore ranking_score = 5;
+}
+
+message Staking {
+  repeated vega.events.v1.StakeLinking accepted = 1;
+  uint64 last_block_seen = 2;
+}
+
+message MultisigControl {
+  repeated vega.events.v1.ERC20MultiSigSignerEvent signers = 1;
+  vega.events.v1.ERC20MultiSigThresholdSetEvent threshold_set = 2;
+  uint64 last_block_seen = 3;
 }

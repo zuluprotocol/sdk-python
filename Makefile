@@ -2,7 +2,7 @@
 
 SHELL := /usr/bin/env bash
 GENERATED_DIR := vegaapiclient/generated
-VEGAPROTOS ?= $(HOME)/src/github.com/vegaprotocol/protos
+VEGAPROTOS ?= $(GOHOME)/protos
 
 .PHONY: default
 default:
@@ -85,7 +85,7 @@ flake8:
 preproto:
 	@if test -z "$(VEGAPROTOS)" ; then echo "Please set VEGAPROTOS" ; exit 1 ; fi
 	@rm -rf sources && cp -a $(VEGAPROTOS)/sources ./
-	@rm -rf third_party && cp -a $(VEGAPROTOS)/third_party ./
+	@wget https://raw.githubusercontent.com/mwitkow/go-proto-validators/master/validator.proto -O ./third_party/proto/github.com/mwitkow/go-proto-validators/validator.proto
 	@(cd "$(VEGAPROTOS)" && git describe --tags) >sources/from.txt
 
 .PHONY: proto
