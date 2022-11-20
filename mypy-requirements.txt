@@ -1,5 +1,5 @@
 mypy==0.941
 types-Jinja2==2.11.9
 types-MarkupSafe==1.1.10
-types-protobuf==3.19.15
+types-protobuf==3.20.4.5
 types-requests==2.27.14
